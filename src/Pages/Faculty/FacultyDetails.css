@@ -1,0 +1,52 @@
+.faculty-details {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 24px;
+}
+.faculty-details__back {
+  display: inline-block;
+  margin-bottom: 20px;
+  color: var(--accent);
+  text-decoration: none;
+}
+.faculty-details__card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 32px;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+.faculty-details__photo {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 16px;
+}
+.faculty-details__name {
+  color: var(--text-h);
+  margin-bottom: 4px;
+}
+.faculty-details__title,
+.faculty-details__dept,
+.faculty-details__email {
+  color: var(--text);
+  margin: 2px 0;
+}
+.faculty-details__bio {
+  margin-top: 20px;
+  line-height: 1.6;
+  color: var(--text);
+}
+.faculty-details__courses {
+  margin-top: 24px;
+  text-align: left;
+}
+.faculty-details__courses ul {
+  padding-left: 20px;
+}
+.faculty-details__empty {
+  text-align: center;
+  margin-top: 60px;
+}
