@@ -1,5 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
+
 import App from "./App";
+
 import Home from "../pages/Home/Home";
 import About from "../pages/About/About";
 import Departments from "../pages/Departments/Departments";
@@ -18,6 +20,7 @@ const router = createBrowserRouter([
     path: "/",
     element: <App />,
     errorElement: <NotFound />,
+
     children: [
       {
         index: true,
@@ -27,46 +30,57 @@ const router = createBrowserRouter([
         path: "about",
         element: <About />,
       },
+
       {
         path: "departments",
         element: <Departments />,
       },
+
       {
         path: "departments/:id",
         element: <div>Department Details</div>,
       },
+
       {
         path: "programs",
         element: <Programs />,
       },
+
       {
         path: "news",
         element: <News />,
       },
+
       {
         path: "news/:id",
-        element: <div>News Details</div>,
+        element: <NewsDetails />,
       },
+
       {
         path: "announcements",
-        element: <Announcements />,
+        element: <Announcement />,
       },
+
       {
         path: "faculty",
         element: <Faculty />,
       },
+
       {
         path: "faculty/:id",
         element: <FacultyDetails />,
       },
+
       {
         path: "services",
         element: <Services />,
       },
+
       {
         path: "events",
-        element: <Events />,
+        element: <Event />,
       },
+
       {
         path: "contact",
         element: <Contact />,
