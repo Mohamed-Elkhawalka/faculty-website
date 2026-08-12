@@ -1,20 +1,88 @@
-.faculty-page {
-  padding: 40px 24px;
-  max-width: 1200px;
-  margin: 0 auto;
+.faculty-page__header {
+  background: #0d1b33;
+  background-image:
+    radial-gradient(circle at 15% 20%, rgba(184, 134, 47, 0.12), transparent 40%),
+    linear-gradient(135deg, #0d1b33 0%, #16294d 55%, #1f3a6b 100%);
+  padding: 64px 24px 48px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
 }
+
+.faculty-page__grid-texture {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+}
+
+.faculty-page__eyebrow {
+  position: relative;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #e8d5a8;
+  margin: 0 0 14px;
+  font-weight: 700;
+}
+
 .faculty-page__title {
-  color: var(--text-h);
-  font-size: 2rem;
-  text-align: center;
+  position: relative;
+  font-weight: 600;
+  font-size: 2.5rem;
+  color: #fff;
+  margin: 0 0 12px;
 }
+
 .faculty-page__subtitle {
-  color: var(--text);
-  text-align: center;
-  margin-bottom: 32px;
+  position: relative;
+  color: #c7d2e3;
+  font-size: 1rem;
+  max-width: 480px;
+  margin: 0 auto 32px;
+  line-height: 1.6;
 }
+
+.faculty-page__stats {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+
+.faculty-page__stat {
+  text-align: center;
+}
+
+.faculty-page__stat-num {
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.faculty-page__stat-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #9fb0cc;
+}
+
 .faculty-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 24px 72px;
+}
+
+.faculty-page__empty {
+  text-align: center;
+  padding: 48px 24px;
+  color: var(--text, #6b7280);
 }

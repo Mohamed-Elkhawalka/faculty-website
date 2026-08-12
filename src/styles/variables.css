@@ -1,0 +1,26 @@
+:root {
+  /* Core palette */
+  --navy: #0d1b33;
+  --navy-light: #16294d;
+  --navy-lighter: #1f3a6b;
+  --gold: #b8862f;
+  --gold-light: #e8d5a8;
+
+  /* Text */
+  --text: #6b7280;
+  --text-dark: #0d1b33;
+  --text-body: #3a4a63;
+  --text-muted: #9fb0cc;
+  --text-subtitle: #c7d2e3;
+
+  /* Department accent colors */
+  --dept-cs: #2f6fb8;
+  --dept-is: #2f9e6b;
+  --dept-se: #b8862f;
+  --dept-ai: #8a4fd1;
+  --dept-cy: #c0473f;
+
+  /* Surfaces */
+  --surface: #ffffff;
+  --surface-shadow: rgba(13, 27, 51, 0.08);
+}
