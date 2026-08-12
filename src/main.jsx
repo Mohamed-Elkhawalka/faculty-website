@@ -4,6 +4,7 @@ import { RouterProvider } from "react-router-dom";
 
 import router from "./app/routes";
 import "./styles/variables.css";
+import "./styles/globals.css";
 import "./i18n/i18n";
 
 import "./styles/variables.css";
