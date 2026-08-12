@@ -1,12 +1,17 @@
 import { Outlet } from "react-router-dom";
+import LanguageSwitcher from "../components/LanguageSwitcher";
 
 function App() {
   return (
     <>
-      <header></header>
+      <header>
+        <LanguageSwitcher />
+      </header>
+
       <main>
         <Outlet />
       </main>
+
       <footer></footer>
     </>
   );
