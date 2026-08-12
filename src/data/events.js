@@ -1,4 +1,8 @@
-
+import conference from "../assets/events/conference.png";
+import workshop from "../assets/events/workshop.png";
+import seminar from "../assets/events/seminar.png";
+import Contest from "../assets/events/Contest.png";
+import career from "../assets/events/career.png";
 const events = [
   {
     id: 1,
@@ -9,7 +13,7 @@ const events = [
     time: "10:00 AM",
     location: "Main Auditorium",
     type: "Conference",
-    image: "/imgEvents/conference.png",
+    image: conference,
   },
   {
     id: 2,
@@ -20,7 +24,7 @@ const events = [
     time: "11:00 AM",
     location: "Computer Lab 1",
     type: "Workshop",
-     image: "/imgEvents/workshop.png",
+     image:workshop,
   },
   {
     id: 3,
@@ -31,7 +35,7 @@ const events = [
     time: "12:00 PM",
     location: "Seminar Hall",
     type: "Seminar",
-     image: "/imgEvents/seminar.png",
+     image:seminar,
   },
   {
     id: 4,
@@ -42,7 +46,7 @@ const events = [
     time: "09:00 AM",
     location: "Computer Lab 2",
     type: "Competition",
-     image: "/imgEvents/Contest.png",
+     image: Contest,
   },
   {
     id: 5,
@@ -53,7 +57,7 @@ const events = [
     time: "10:00 AM",
     location: "Faculty Main Hall",
     type: "Career",
-     image: "/imgEvents/career.png",
+     image:career,
   },
 ];
 

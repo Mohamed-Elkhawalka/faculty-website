@@ -1,4 +1,8 @@
-
+import ecpcImage from "../assets/news/ecpc.png";
+import ResearchLab from "../assets/news/ResearchLab.png";
+import web from "../assets/news/web.png";
+import training from "../assets/news/training.png";
+import Activities from "../assets/news/Activities.png";
 const news = [
   {
     id: 1,
@@ -9,7 +13,7 @@ const news = [
       "Students interested in competitive programming can now register for the annual faculty programming competition. The competition aims to encourage problem-solving skills, algorithmic thinking, and teamwork among students.",
     date: "2026-08-05",
     category: "Academic",
-    image: "/imgNews/ecpc.png",
+    image:ecpcImage,
   },
   {
     id: 2,
@@ -20,7 +24,7 @@ const news = [
       "The new AI Research Lab provides students and researchers with an environment for developing innovative projects in artificial intelligence, machine learning, computer vision, and data science.",
     date: "2026-08-02",
     category: "Research",
-    image: "/imgNews/ResearchLab.png",
+    image: ResearchLab,
   },
   {
     id: 3,
@@ -31,7 +35,7 @@ const news = [
       "The workshop introduces students to modern frontend development concepts, including React, component-based architecture, responsive design, and modern development practices.",
     date: "2026-07-28",
     category: "Events",
-    image: "/imgNews/web.png",
+    image: web,
   },
   {
     id: 4,
@@ -42,7 +46,7 @@ const news = [
       "The summer training program provides students with practical experience through technical sessions, hands-on projects, and professional development activities.",
     date: "2026-07-25",
     category: "Students",
-    image: "/imgNews/training.png",
+    image: training,
   },
   {
     id: 5,
@@ -53,7 +57,7 @@ const news = [
       "Students can participate in a variety of academic, technical, cultural, and social activities throughout Student Activities Week.",
     date: "2026-07-20",
     category: "Students",
-    image: "/imgNews/Activities.png",
+    image: Activities,
   },
 ];
 

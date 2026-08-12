@@ -90,6 +90,8 @@ export default function News() {
             options={FILTER_OPTIONS}
             label="Filter by category"
           />
+
+          
         </section>
 
         {/* Results Information */}
