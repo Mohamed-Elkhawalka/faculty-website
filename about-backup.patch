@@ -1,0 +1,11 @@
+diff --git a/src/Pages/About/About.jsx b/src/Pages/About/About.jsx
+index 8c115c9..cab97fd 100644
+--- a/src/Pages/About/About.jsx
++++ b/src/Pages/About/About.jsx
+@@ -34,4 +34,4 @@ function About() {
+   );
+ }
+ 
+-export default About;
++export default About;
+\ No newline at end of file

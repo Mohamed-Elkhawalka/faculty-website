@@ -1,0 +1,22 @@
+diff --git a/src/Pages/Contact/Contact.jsx b/src/Pages/Contact/Contact.jsx
+index ca43443..5f6b93d 100644
+--- a/src/Pages/Contact/Contact.jsx
++++ b/src/Pages/Contact/Contact.jsx
+@@ -157,7 +157,9 @@ function Contact() {
+             {errors.message && <p>{errors.message}</p>}
+           </div>
+ 
+-          <button type="submit">{t("common.submit")}</button>
++          <button type="submit">
++            {t("common.submit")}
++          </button>
+ 
+           {submitted && <p>{t("contact.success")}</p>}
+         </form>
+@@ -166,4 +168,4 @@ function Contact() {
+   );
+ }
+ 
+-export default Contact;
++export default Contact;
+\ No newline at end of file
