@@ -1,26 +1,30 @@
 :root {
   /* Core palette */
-  --navy: #0d1b33;
-  --navy-light: #16294d;
-  --navy-lighter: #1f3a6b;
-  --gold: #b8862f;
-  --gold-light: #e8d5a8;
+  --primary: #1656c9;
+  --primary-dark: #0d3e94;
+  --primary-light: #eaf1ff;
+  --accent: #ff9f1c;
 
   /* Text */
-  --text: #6b7280;
-  --text-dark: #0d1b33;
-  --text-body: #3a4a63;
-  --text-muted: #9fb0cc;
-  --text-subtitle: #c7d2e3;
+  --text-dark: #1a2333;
+  --text-body: #55617a;
+  --text-muted: #94a0b8;
 
   /* Department accent colors */
-  --dept-cs: #2f6fb8;
+  --dept-cs: #1656c9;
   --dept-is: #2f9e6b;
-  --dept-se: #b8862f;
+  --dept-se: #ff9f1c;
   --dept-ai: #8a4fd1;
   --dept-cy: #c0473f;
 
   /* Surfaces */
   --surface: #ffffff;
-  --surface-shadow: rgba(13, 27, 51, 0.08);
+  --surface-alt: #f5f7fb;
+  --surface-shadow: rgba(22, 86, 201, 0.1);
+
+  /* Aliases for compatibility with other teammates' code */
+  --bg: var(--surface);
+  --border: #e2e8f0;
+  --shadow: var(--surface-shadow);
+  --text-h: var(--text-dark);
 }

@@ -8,13 +8,11 @@ function Faculty() {
   return (
     <div className="faculty-page">
       <header className="faculty-page__header">
-        <div className="faculty-page__grid-texture"></div>
         <p className="faculty-page__eyebrow">Faculty of Computers &amp; Information</p>
         <h1 className="faculty-page__title">Our Faculty</h1>
         <p className="faculty-page__subtitle">
           Meet the professors and researchers shaping the next generation of computing.
         </p>
-
         <div className="faculty-page__stats">
           <div className="faculty-page__stat">
             <span className="faculty-page__stat-num">{facultyData.length}</span>

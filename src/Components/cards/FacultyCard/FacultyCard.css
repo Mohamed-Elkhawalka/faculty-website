@@ -32,4 +32,47 @@
   text-decoration: none;
   color: inherit;
   display: block;
+.faculty-card {
+  background: var(--surface);
+  border-top: 4px solid;
+  border-radius: 10px;
+  padding: 28px 20px;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(22, 86, 201, 0.08);
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.faculty-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(22, 86, 201, 0.15);
+}
+
+.faculty-card__photo {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 14px;
+}
+
+.faculty-card__name {
+  font-family: "Source Serif 4", serif;
+  color: var(--text-dark);
+  font-size: 1.05rem;
+  margin: 4px 0;
+}
+
+.faculty-card__title {
+  color: var(--text-body);
+  font-size: 0.85rem;
+  margin: 2px 0;
+}
+
+.faculty-card__dept {
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin: 4px 0 0;
 }
