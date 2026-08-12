@@ -2,8 +2,8 @@ import { createBrowserRouter } from "react-router-dom";
 import App from "./App";
 import Home from "../pages/Home/Home";
 import NotFound from "../pages/NotFound/NotFound";
-import Faculty from "../pages/Faculty/Faculty";
-import FacultyDetails from "../pages/Faculty/FacultyDetails";
+import Faculty from "../Pages/Faculty/Faculty";
+import FacultyDetails from "../Pages/Faculty/FacultyDetails";
 
 const router = createBrowserRouter([
   {
