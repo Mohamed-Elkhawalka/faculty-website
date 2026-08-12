@@ -3,15 +3,17 @@ import { createBrowserRouter } from "react-router-dom";
 import App from "./App";
 
 import Home from "../pages/Home/Home";
-import NotFound from "../pages/NotFound/NotFound";
-
-import Faculty from "../Pages/Faculty/Faculty";
-import FacultyDetails from "../Pages/Faculty/FacultyDetails";
-
+import About from "../pages/About/About";
+import Departments from "../pages/Departments/Departments";
+import Programs from "../pages/Programs/Programs";
 import News from "../pages/News/News";
-import NewsDetails from "../pages/News/NewsDetails";
-import Announcement from "../pages/Announcement/Announcement";
-import Event from "../pages/Event/Event";
+import Announcements from "../pages/Announcements/Announcements";
+import NotFound from "../pages/NotFound/NotFound";
+import Faculty from "../pages/Faculty/Faculty";
+import FacultyDetails from "../pages/Faculty/FacultyDetails";
+import Services from "../pages/Services/Services";
+import Events from "../pages/Events/Events";
+import Contact from "../pages/Contact/Contact";
 
 const router = createBrowserRouter([
   {
@@ -24,15 +26,14 @@ const router = createBrowserRouter([
         index: true,
         element: <Home />,
       },
-
       {
         path: "about",
-        element: <div>About</div>,
+        element: <About />,
       },
 
       {
         path: "departments",
-        element: <div>Departments</div>,
+        element: <Departments />,
       },
 
       {
@@ -42,7 +43,7 @@ const router = createBrowserRouter([
 
       {
         path: "programs",
-        element: <div>Programs</div>,
+        element: <Programs />,
       },
 
       {
@@ -72,7 +73,7 @@ const router = createBrowserRouter([
 
       {
         path: "services",
-        element: <div>Services</div>,
+        element: <Services />,
       },
 
       {
@@ -82,7 +83,7 @@ const router = createBrowserRouter([
 
       {
         path: "contact",
-        element: <div>Contact</div>,
+        element: <Contact />,
       },
     ],
   },
