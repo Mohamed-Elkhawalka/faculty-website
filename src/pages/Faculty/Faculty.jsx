@@ -1,49 +1,69 @@
+import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { facultyData } from "../../data/faculty";
-import FacultyCard from "../../Components/Cards/FacultyCard/FacultyCard";
+import FacultyCard from "../../Components/cards/FacultyCard/FacultyCard";
 import "./Faculty.css";
 
 function Faculty() {
-  const departmentCount = new Set(facultyData.map((f) => f.department)).size;
+  const { t } = useTranslation();
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedDepartment, setSelectedDepartment] = useState("All");
+
+  const localizedFaculty = facultyData.map((member) => ({
+    ...member,
+    departmentKey: member.department,
+    title: t(`faculty.members.${member.id}.title`),
+    department: t(`faculty.members.${member.id}.department`),
+  }));
+  const departments = [...new Set(facultyData.map((member) => member.department))];
+  const filteredFaculty = localizedFaculty.filter((member) => {
+    const matchesSearch = [member.name, member.title, member.department, member.email]
+      .some((value) => value.toLowerCase().includes(searchTerm.trim().toLowerCase()));
+    const matchesDepartment = selectedDepartment === "All" || member.departmentKey === selectedDepartment;
+
+    return matchesSearch && matchesDepartment;
+  });
 
   return (
-    <div className="faculty-page">
-      <header className="faculty-page__header">
-        <p className="faculty-page__eyebrow">Faculty of Computers &amp; Information</p>
-        <h1 className="faculty-page__title">Our Faculty</h1>
-        <p className="faculty-page__subtitle">
-          Meet the professors and researchers shaping the next generation of computing.
-        </p>
-       <div className="faculty-page__stats">
-  <div className="faculty-page__stat">
-    <svg className="faculty-page__stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
-      <circle cx="9" cy="7" r="4" />
-      <path d="M23 21v-2a4 4 0 00-3-3.87" />
-      <path d="M16 3.13a4 4 0 010 7.75" />
-    </svg>
-    <span className="faculty-page__stat-num">{facultyData.length}</span>
-    <span className="faculty-page__stat-label">Faculty Members</span>
-  </div>
-  <div className="faculty-page__stat">
-    <svg className="faculty-page__stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <path d="M3 21h18M5 21V7l8-4 8 4v14M9 9h1M9 13h1M14 9h1M14 13h1" />
-    </svg>
-    <span className="faculty-page__stat-num">{departmentCount}</span>
-    <span className="faculty-page__stat-label">Departments</span>
-  </div>
-</div>
-      </header>
-
-      {facultyData.length === 0 ? (
-        <p className="faculty-page__empty">No faculty members available.</p>
-      ) : (
-        <div className="faculty-grid">
-          {facultyData.map((faculty) => (
-            <FacultyCard key={faculty.id} faculty={faculty} />
-          ))}
+    <main className="faculty-page">
+      <section className="faculty-hero">
+        <div className="faculty-container">
+          <p className="faculty-hero__eyebrow">{t("faculty.eyebrow")}</p>
+          <h1>{t("faculty.title")}</h1>
+          <p className="faculty-hero__text">{t("faculty.subtitle")}</p>
         </div>
-      )}
-    </div>
+      </section>
+
+      <section className="faculty-section" aria-labelledby="faculty-title">
+        <div className="faculty-container">
+          <div className="faculty-section__header">
+            <div>
+              <h2 id="faculty-title">{t("faculty.membersTitle")}</h2>
+              <p>{t("faculty.description")}</p>
+            </div>
+            <div className="faculty-controls">
+              <label className="sr-only" htmlFor="faculty-search">{t("faculty.searchLabel")}</label>
+              <input id="faculty-search" className="faculty-control" type="search" placeholder={t("faculty.search")} value={searchTerm} onChange={(event) => setSearchTerm(event.target.value)} />
+              <label className="sr-only" htmlFor="department-filter">{t("faculty.departmentFilter")}</label>
+              <select id="department-filter" className="faculty-control" value={selectedDepartment} onChange={(event) => setSelectedDepartment(event.target.value)}>
+                <option value="All">{t("faculty.allDepartments")}</option>
+                {departments.map((department) => {
+                  const member = facultyData.find((item) => item.department === department);
+                  return <option key={department} value={department}>{t(`faculty.members.${member.id}.department`)}</option>;
+                })}
+              </select>
+            </div>
+          </div>
+          {filteredFaculty.length > 0 ? (
+            <div className="faculty-grid">
+              {filteredFaculty.map((faculty) => <FacultyCard key={faculty.id} faculty={faculty} />)}
+            </div>
+          ) : (
+            <div className="faculty-empty"><h3>{t("faculty.noResults")}</h3><p>{t("faculty.tryAgain")}</p></div>
+          )}
+        </div>
+      </section>
+    </main>
   );
 }
 
