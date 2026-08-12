@@ -1,23 +1,92 @@
-:root {
-  --primary: #1c5fb8;
-  --primary-dark: #12356a;
-  --secondary: #f6b93b;
+root {
+  /* ---- Brand navy scale (header, hero, page background) ---- */
+  --color-navy-950: #0b1220;   /* page background */
+  --color-navy-900: #0f1b30;   /* card / section background */
+  --color-navy-800: #16294a;   /* raised surfaces, footer */
+  --color-navy-700: #1e3a63;   /* borders on dark surfaces */
+  --color-navy-600: #2a4d82;   /* hero gradient start */
+  --color-navy-500: #3a63a8;   /* hero gradient end */
 
-  --bg: #f7f9fc;
-  --surface: #ffffff;
-  --border: #d9e1ed;
+  /* ---- Primary blue (links, buttons, accents) ---- */
+  --color-blue-600: #2f5fd6;   /* primary button / accent line */
+  --color-blue-500: #4c7bf0;   /* hover state */
+  --color-blue-100: #dbe6ff;   /* badge background on dark cards */
+  --color-blue-700: #1f3f96;   /* pressed state */
 
-  --text-dark: #16233c;
-  --text-h: #16233c;
-  --text-body: #5c6a80;
-  --text: #5c6a80;
+  /* ---- Gold accent — small highlights ONLY, never a background ---- */
+  --color-gold-500: #d9a441;   /* top accent line, icons, emphasis */
+  --color-gold-100: #f6e6c6;   /* badge background when gold is used */
+  --color-gold-700: #a97b1f;   /* text-on-gold, if ever needed */
 
-  --shadow: 0 4px 16px rgba(15, 48, 97, 0.09);
-  --shadow-hover: 0 10px 24px rgba(22, 86, 201, 0.15);
+  /* ---- Neutrals / text ---- */
+  --color-white: #ffffff;
+  --color-text-primary: #f4f6fb;     /* headings on navy */
+  --color-text-secondary: #b7c2d6;   /* body copy on navy */
+  --color-text-muted: #8290ac;       /* captions, meta */
+  --color-border-subtle: rgba(255, 255, 255, 0.12);
+  --color-border-strong: rgba(255, 255, 255, 0.22);
 
+  /* ---- Semantic aliases ---- */
+  --bg-page: var(--color-navy-950);
+  --bg-header: var(--color-navy-900);
+  --bg-hero-start: var(--color-navy-600);
+  --bg-hero-end: var(--color-navy-500);
+  --bg-card: var(--color-navy-900);
+  --bg-footer: var(--color-navy-900);
+
+  --accent-line-default: var(--color-blue-600);  /* thin top line on cards */
+  --accent-line-highlight: var(--color-gold-500); /* rare: 1 card per row max */
+
+  --btn-primary-bg: var(--color-blue-600);
+  --btn-primary-bg-hover: var(--color-blue-500);
+  --btn-primary-text: var(--color-white);
+
+  --input-bg: transparent;
+  --input-border: var(--color-border-subtle);
+  --input-border-focus: var(--color-blue-500);
+  --input-placeholder: var(--color-text-muted);
+  --input-text: var(--color-text-primary);
+
+  /* ---- Typography ---- */
+  --font-serif: "Source Serif 4", "Georgia", serif;   /* headings */
+  --font-sans: "Inter", "Segoe UI", sans-serif;        /* body, UI */
+  --font-arabic: "Noto Naskh Arabic", "Tahoma", sans-serif;
+
+  --fs-hero: clamp(2.25rem, 5vw, 3.5rem);
+  --fs-h2: 1.875rem;
+  --fs-h3: 1.375rem;
+  --fs-body: 1rem;
+  --fs-small: 0.875rem;
+  --fs-eyebrow: 0.75rem;
+
+  --lh-heading: 1.15;
+  --lh-body: 1.6;
+
+  /* ---- Spacing scale ---- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+
+  /* ---- Radius / elevation ---- */
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 14px;
+  --radius-pill: 999px;
+  --shadow-card: 0 4px 16px rgba(0, 0, 0, 0.35);
 
-  --transition: 0.2s ease;
+  /* ---- Card accent line thickness (the "01/02/03" cards) ---- */
+  --card-accent-height: 4px;
+  --card-padding: var(--space-6);
+
+  /* ---- Layout ---- */
+  --container-max: 1200px;
+  --header-height: 72px;
 }
+
+/* 
+
