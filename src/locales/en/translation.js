@@ -69,6 +69,25 @@ const translation = {
     success: "Your message has been sent successfully.",
   },
 
+  faculty: {
+    eyebrow: "Faculty of Computers and Information",
+    title: "Our Faculty",
+    subtitle: "Meet the dedicated academics guiding the next generation of technology leaders.",
+    membersTitle: "Faculty Members",
+    description: "Discover our experienced teaching and research staff.",
+    search: "Search faculty...", searchLabel: "Search faculty members", departmentFilter: "Filter by department", allDepartments: "All departments",
+    noResults: "No faculty members found", tryAgain: "Try a different name or department.", back: "← Back to Faculty",
+    notFound: "Faculty member not found", courses: "Courses",
+    members: {
+      1: { title: "Professor", department: "Computer Science", bio: "Specializes in artificial intelligence and machine learning, with over 15 years of teaching experience.", courses: ["Data Structures", "Machine Learning"] },
+      2: { title: "Associate Professor", department: "Information Systems", bio: "Focuses on database systems and enterprise software architecture.", courses: ["Database Systems", "Software Engineering"] },
+      3: { title: "Assistant Professor", department: "Computer Science", bio: "Researches computer networks and cybersecurity.", courses: ["Networks", "Cybersecurity Fundamentals"] },
+      4: { title: "Professor", department: "Software Engineering", bio: "Leads research in software testing and quality assurance methodologies.", courses: ["Software Testing", "Software Architecture"] },
+      5: { title: "Associate Professor", department: "Artificial Intelligence", bio: "Works on natural language processing and deep learning applications.", courses: ["Deep Learning", "Natural Language Processing"] },
+      6: { title: "Assistant Professor", department: "Cybersecurity", bio: "Researches network security and ethical hacking practices for academic and industry use.", courses: ["Network Security", "Ethical Hacking"] },
+    },
+  },
+
   errors: {
     nameRequired: "Name is required.",
     emailRequired: "Email is required.",

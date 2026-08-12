@@ -1,74 +1,47 @@
-import { Link, useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { facultyData } from "../../data/faculty";
-import "./Faculty.css";
+import "./FacultyDetails.css";
 
 function FacultyDetails() {
+  const { t } = useTranslation();
   const { id } = useParams();
-  const faculty = facultyData.find((member) => member.id === Number(id));
+  const faculty = facultyData.find((f) => f.id === Number(id));
 
   if (!faculty) {
     return (
-      <main className="faculty-page">
-        <section className="faculty-section">
-          <div className="faculty-container faculty-empty">
-            <h1>Faculty member not found</h1>
-            <p>The profile you are looking for does not exist.</p>
-            <Link className="faculty-back-link" to="/faculty">
-              Back to Faculty
-            </Link>
-          </div>
-        </section>
-      </main>
+      <div className="faculty-details__empty">
+        <p>{t("faculty.notFound")}</p>
+        <Link to="/faculty">{t("faculty.back")}</Link>
+      </div>
     );
   }
 
   return (
-    <main className="faculty-page">
-      <section className="faculty-section">
-        <div className="faculty-container">
-          <Link className="faculty-back-link" to="/faculty">
-            ← Back to Faculty
-          </Link>
+    <div className="faculty-details">
+      <div className="faculty-details__hero">
+        <Link to="/faculty" className="faculty-details__back">{t("faculty.back")}</Link>
+        <img src={faculty.photo} alt={faculty.name} className="faculty-details__photo" />
+        <h1 className="faculty-details__name">{faculty.name}</h1>
+        <p className="faculty-details__title">{t(`faculty.members.${faculty.id}.title`)}</p>
+        <p className="faculty-details__dept">{t(`faculty.members.${faculty.id}.department`)}</p>
+      </div>
 
-          <article className="faculty-profile">
-            <img
-              className="faculty-profile__photo"
-              src={faculty.photo}
-              alt={faculty.name}
-            />
-
-            <div className="faculty-profile__content">
-              <p className="faculty-profile__department">
-                {faculty.department}
-              </p>
-              <h1>{faculty.name}</h1>
-              <p className="faculty-profile__title">{faculty.title}</p>
-
-              <div className="faculty-profile__info">
-                <section>
-                  <h2>About</h2>
-                  <p>{faculty.bio}</p>
-                </section>
-
-                <section>
-                  <h2>Contact</h2>
-                  <a href={`mailto:${faculty.email}`}>{faculty.email}</a>
-                </section>
-
-                <section>
-                  <h2>Courses</h2>
-                  <ul className="faculty-courses">
-                    {faculty.courses.map((course) => (
-                      <li key={course}>{course}</li>
-                    ))}
-                  </ul>
-                </section>
-              </div>
-            </div>
-          </article>
+      <div className="faculty-details__body">
+        <div className="faculty-details__card">
+          <p className="faculty-details__email">{faculty.email}</p>
+          <p className="faculty-details__bio">{t(`faculty.members.${faculty.id}.bio`)}</p>
+          <div className="faculty-details__courses">
+            <h3>{t("faculty.courses")}</h3>
+            <ul>
+              {faculty.courses.map((course, index) => (
+                <li key={course}>{t(`faculty.members.${faculty.id}.courses.${index}`)}</li>
+              ))}
+            </ul>
+          </div>
         </div>
-      </section>
-    </main>
+      </div>
+    </div>
   );
 }
 

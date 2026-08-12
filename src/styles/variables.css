@@ -1,23 +1,37 @@
+
+@import "tailwindcss";
 :root {
-  --primary: #1c5fb8;
-  --primary-dark: #12356a;
-  --secondary: #f6b93b;
+  /* Core palette */
+  --primary: #1656c9;
+  --primary-dark: #0d3e94;
+  --primary-light: #eaf1ff;
+  --accent: #ff9f1c;
 
-  --bg: #f7f9fc;
+  /* Text */
+  --text-dark: #1a2333;
+  --text-body: #55617a;
+  --text-muted: #94a0b8;
+
+  /* Department accent colors */
+  --dept-cs: #1656c9;
+  --dept-is: #2f9e6b;
+  --dept-se: #ff9f1c;
+  --dept-ai: #8a4fd1;
+  --dept-cy: #c0473f;
+
+  /* Surfaces */
   --surface: #ffffff;
-  --border: #d9e1ed;
+  --surface-alt: #f5f7fb;
+  --surface-shadow: rgba(22, 86, 201, 0.1);
 
-  --text-dark: #16233c;
-  --text-h: #16233c;
-  --text-body: #5c6a80;
-  --text: #5c6a80;
-
-  --shadow: 0 4px 16px rgba(15, 48, 97, 0.09);
+  /* Aliases for compatibility with other teammates' code */
+  --bg: var(--surface);
+  --border: #e2e8f0;
+  --shadow: var(--surface-shadow);
   --shadow-hover: 0 10px 24px rgba(22, 86, 201, 0.15);
-
+  --text-h: var(--text-dark);
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 14px;
-
   --transition: 0.2s ease;
 }

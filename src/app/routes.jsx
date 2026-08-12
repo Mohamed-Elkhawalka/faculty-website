@@ -1,68 +1,92 @@
 import { createBrowserRouter } from "react-router-dom";
+
 import App from "./App";
+
 import Home from "../pages/Home/Home";
+import About from "../pages/About/About";
+import Departments from "../pages/Departments/Departments";
+import Programs from "../pages/Programs/Programs";
+import News from "../pages/News/News";
+import NewsDetails from "../pages/News/NewsDetails";
+import Announcements from "../pages/Announcements/Announcements";
+import Announcement from "../pages/Announcement/Announcement";
 import NotFound from "../pages/NotFound/NotFound";
-import Faculty from "../Pages/Faculty/Faculty";
-import FacultyDetails from "../Pages/Faculty/FacultyDetails";
+import Faculty from "../pages/Faculty/Faculty";
+import FacultyDetails from "../pages/Faculty/FacultyDetails";
+import Services from "../pages/Services/Services";
+import Events from "../pages/Events/Events";
+import Event from "../pages/Event/Event";
+import Contact from "../pages/Contact/Contact";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
     errorElement: <NotFound />,
+
     children: [
       {
         index: true,
         element: <Home />,
       },
-      // Temporary placeholders until the other pages are implemented
       {
         path: "about",
-        element: <div>About</div>,
+        element: <About />,
       },
+
       {
         path: "departments",
-        element: <div>Departments</div>,
+        element: <Departments />,
       },
+
       {
         path: "departments/:id",
         element: <div>Department Details</div>,
       },
+
       {
         path: "programs",
-        element: <div>Programs</div>,
+        element: <Programs />,
       },
+
       {
         path: "news",
-        element: <div>News</div>,
+        element: <News />,
       },
+
       {
         path: "news/:id",
-        element: <div>News Details</div>,
+        element: <NewsDetails />,
       },
+
       {
         path: "announcements",
-        element: <div>Announcements</div>,
+        element: <Announcement />,
       },
+
       {
         path: "faculty",
         element: <Faculty />,
       },
+
       {
         path: "faculty/:id",
         element: <FacultyDetails />,
       },
+
       {
         path: "services",
-        element: <div>Services</div>,
+        element: <Services />,
       },
+
       {
         path: "events",
-        element: <div>Events</div>,
+        element: <Event />,
       },
+
       {
         path: "contact",
-        element: <div>Contact</div>,
+        element: <Contact />,
       },
     ],
   },
