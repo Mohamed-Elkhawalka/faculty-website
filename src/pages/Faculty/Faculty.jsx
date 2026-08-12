@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import FacultyCard from "../../Components/Cards/FacultyCard/FacultyCard";
+import FacultyCard from "../../Components/cards/FacultyCard/FacultyCard";
 import { facultyData } from "../../data/faculty";
 import "./Faculty.css";
 
