@@ -7,6 +7,7 @@ import About from "../pages/About/About";
 import Departments from "../pages/Departments/Departments";
 import Programs from "../pages/Programs/Programs";
 import News from "../pages/News/News";
+import NewsDetails from "../pages/News/NewsDetails";
 import Announcements from "../pages/Announcements/Announcements";
 import NotFound from "../pages/NotFound/NotFound";
 import Faculty from "../pages/Faculty/Faculty";
@@ -26,6 +27,7 @@ const router = createBrowserRouter([
         index: true,
         element: <Home />,
       },
+
       {
         path: "about",
         element: <About />,
@@ -58,7 +60,7 @@ const router = createBrowserRouter([
 
       {
         path: "announcements",
-        element: <Announcement />,
+        element: <Announcements />,
       },
 
       {
@@ -78,7 +80,7 @@ const router = createBrowserRouter([
 
       {
         path: "events",
-        element: <Event />,
+        element: <Events />,
       },
 
       {
