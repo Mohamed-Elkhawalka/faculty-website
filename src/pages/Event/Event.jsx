@@ -1,47 +1,132 @@
+import { useMemo, useState } from "react";
+import { useTranslation } from "react-i18next";
 
-import events from "../../Data/events";
-import EventCard from "../../Cards/EventCard/EventCard";
+import events from "../../data/events";
+import EventCard from "../../cards/EventCard/EventCard";
+import SearchBar from "../../ui/SearchBar/SearchBar";
+import Filter from "../../ui/Filter/Filter";
+import EmptyState from "../../ui/EmptyState/EmptyState";
 
+import styles from "./Event.module.css";
 
 export default function Event() {
+  const { t } = useTranslation();
+
+  const [search, setSearch] = useState("");
+  const [selectedType, setSelectedType] = useState("all");
+
+  const filterOptions = [
+    {
+      value: "all",
+      label: t("events.filters.all"),
+    },
+    {
+      value: "conference",
+      label: t("events.types.conference"),
+    },
+    {
+      value: "workshop",
+      label: t("events.types.workshop"),
+    },
+    {
+      value: "seminar",
+      label: t("events.types.seminar"),
+    },
+    {
+      value: "competition",
+      label: t("events.types.competition"),
+    },
+    {
+      value: "career",
+      label: t("events.types.career"),
+    },
+  ];
+
+  const filteredEvents = useMemo(() => {
+    const searchText = search.trim().toLowerCase();
+
+    return events.filter((event) => {
+      const title = t(event.titleKey).toLowerCase();
+      const description = t(event.descriptionKey).toLowerCase();
+      const location = t(event.locationKey).toLowerCase();
+
+      const matchesSearch =
+        title.includes(searchText) ||
+        description.includes(searchText) ||
+        location.includes(searchText);
+
+      const matchesType =
+        selectedType === "all" ||
+        event.typeKey === `events.types.${selectedType}`;
+
+      return matchesSearch && matchesType;
+    });
+  }, [search, selectedType, t]);
+
+  const handleClearFilters = () => {
+    setSearch("");
+    setSelectedType("all");
+  };
+
   return (
-    <main className="min-h-screen bg-gray-50 px-4 py-10 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-7xl">
-        <header className="mb-10 text-center">
-          <h1 className="text-3xl font-bold text-gray-900 sm:text-4xl">
-            Upcoming Events
-          </h1>
+    <main className={styles.eventsPage}>
+    <section
+  className={`${styles.eventsSection} bg-slate-100`}
+  aria-labelledby="events-title"
+>
+        <div className={styles.eventsContainer}>
 
-          <p className="mx-auto mt-3 max-w-2xl text-base leading-7 text-gray-600">
-            Discover upcoming conferences, workshops, seminars, competitions,
-            and career opportunities at the Faculty of Computers and
-            Information.
-          </p>
-        </header>
+          {/* Header */}
+          <div className={styles.eventsHeader}>
+            <div className={styles.eventsHeaderText}>
+              <h1 id="events-title">
+                {t("events.title")}
+              </h1>
 
-        {events.length === 0 ? (
-          <div className="rounded-2xl bg-white p-10 text-center shadow-sm ring-1 ring-gray-200">
-            <h2 className="text-xl font-semibold text-gray-900">
-              No events available
-            </h2>
+              <p>
+                {t("events.description")}
+              </p>
+            </div>
 
-            <p className="mt-2 text-gray-600">
-              There are currently no upcoming events.
-            </p>
+            {/* Search & Filter */}
+            <div className={styles.eventsControls}>
+            <SearchBar
+  value={search}
+  onChange={setSearch}
+  placeholder={t("events.searchPlaceholder")}
+  label={t("common.search")}
+/>
+
+              <Filter
+                value={selectedType}
+                onChange={setSelectedType}
+                options={filterOptions}
+                label={t("events.filterByType")}
+              />
+            </div>
           </div>
-        ) : (
-          <section
-            aria-label="Upcoming events"
-            className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
-          >
-            {events.map((event) => (
-              <EventCard key={event.id} event={event} />
-            ))}
-          </section>
-        )}
-      </div>
+
+          {/* Events */}
+          {filteredEvents.length > 0 ? (
+            <div className={styles.eventsGrid}>
+              {filteredEvents.map((event) => (
+                <EventCard
+                  key={event.id}
+                  event={event}
+                />
+              ))}
+            </div>
+          ) : (
+            <div className={styles.eventsEmpty}>
+              <EmptyState
+                onAction={handleClearFilters}
+                actionLabel={t("common.clearFilters")}
+              />
+            </div>
+          )}
+
+        </div>
+      </section>
     </main>
   );
 }
-
-

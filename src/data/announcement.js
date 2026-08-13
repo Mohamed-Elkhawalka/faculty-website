@@ -1,38 +1,39 @@
-
 const announcements = [
   {
     id: 1,
-    title: "Registration for the New Semester",
-    description:
-      "Registration for the new semester will start next week. Students are required to complete their registration before the deadline.",
+    titleKey: "announcements.items.registrationNewSemester.title",
+    descriptionKey:
+      "announcements.items.registrationNewSemester.description",
     date: "2026-08-10",
-    type: "Important",
+    typeKey: "announcements.types.important",
   },
+
   {
     id: 2,
-    title: "Final Exam Schedule",
-    description:
-      "The final exam schedule has been published. Please check your courses and exam dates.",
+    titleKey: "announcements.items.finalExamSchedule.title",
+    descriptionKey:
+      "announcements.items.finalExamSchedule.description",
     date: "2026-08-08",
-    type: "Academic",
+    typeKey: "announcements.types.academic",
   },
+
   {
     id: 3,
-    title: "Student Activities",
-    description:
-      "Join our upcoming student activities and events throughout the semester.",
+    titleKey: "announcements.items.studentActivities.title",
+    descriptionKey:
+      "announcements.items.studentActivities.description",
     date: "2026-08-05",
-    type: "Students",
+    typeKey: "announcements.types.students",
   },
+
   {
     id: 4,
-    title: "Library Opening Hours",
-    description:
-      "The library will be open from 8:00 AM to 8:00 PM during the academic semester.",
+    titleKey: "announcements.items.libraryOpeningHours.title",
+    descriptionKey:
+      "announcements.items.libraryOpeningHours.description",
     date: "2026-08-01",
-    type: "General",
+    typeKey: "announcements.types.general",
   },
 ];
 
 export default announcements;
-
