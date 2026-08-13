@@ -1,15 +1,14 @@
 import { useMemo, useState } from "react";
+import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-
 import events from "../../data/events";
 import EventCard from "../../cards/EventCard/EventCard";
 import SearchBar from "../../ui/SearchBar/SearchBar";
 import Filter from "../../ui/Filter/Filter";
 import EmptyState from "../../ui/EmptyState/EmptyState";
+import "./Event.css";
 
-import styles from "./Event.module.css";
-
-export default function Event() {
+function Event() {
   const { t } = useTranslation();
 
   const [search, setSearch] = useState("");
@@ -69,35 +68,46 @@ export default function Event() {
   };
 
   return (
-    <main className={styles.eventsPage}>
-    <section
-  className={`${styles.eventsSection} bg-slate-100`}
-  aria-labelledby="events-title"
->
-        <div className={styles.eventsContainer}>
+    <main className="events">
+      <section className="events__hero">
+        <div className="events__hero-pattern"></div>
 
-          {/* Header */}
-          <div className={styles.eventsHeader}>
-            <div className={styles.eventsHeaderText}>
-              <h1 id="events-title">
-                {t("events.title")}
-              </h1>
+        <div className="site-container events__hero-container">
+          <span className="events__eyebrow">{t("events.eyebrow")}</span>
 
-              <p>
-                {t("events.description")}
-              </p>
+          <h1 className="events__title">{t("events.title")}</h1>
+
+          <p className="events__description">{t("events.description")}</p>
+        </div>
+      </section>
+
+      <section className="page-section events__section">
+        <div className="site-container">
+          <div className="events__section-header">
+            <div>
+              <span className="events__section-label">{t("events.label")}</span>
+
+              <h2>{t("events.list")}</h2>
             </div>
 
-            {/* Search & Filter */}
-            <div className={styles.eventsControls}>
-            <SearchBar
-  value={search}
-  onChange={setSearch}
-  placeholder={t("events.searchPlaceholder")}
-  label={t("common.search")}
-/>
+            <p>{t("events.listDescription")}</p>
+          </div>
+
+          <div className="events__controls-wrapper">
+            <div className="events__controls-title">
+              {t("events.searchAndFilter")}
+            </div>
+
+            <div className="events__controls">
+              <SearchBar
+                value={search}
+                onChange={setSearch}
+                placeholder={t("events.searchPlaceholder")}
+                label={t("common.search")}
+              />
 
               <Filter
+                id="event-type-filter"
                 value={selectedType}
                 onChange={setSelectedType}
                 options={filterOptions}
@@ -106,27 +116,56 @@ export default function Event() {
             </div>
           </div>
 
-          {/* Events */}
+          <div className="events__results-header">
+            <span>
+              {t(
+                filteredEvents.length === 1
+                  ? "events.resultCount.one"
+                  : "events.resultCount.other",
+              )}
+            </span>
+
+            <strong>{filteredEvents.length}</strong>
+          </div>
+
           {filteredEvents.length > 0 ? (
-            <div className={styles.eventsGrid}>
+            <div className="events__grid">
               {filteredEvents.map((event) => (
-                <EventCard
-                  key={event.id}
-                  event={event}
-                />
+                <EventCard key={event.id} event={event} />
               ))}
             </div>
           ) : (
-            <div className={styles.eventsEmpty}>
+            <div className="events__empty">
               <EmptyState
                 onAction={handleClearFilters}
-                actionLabel={t("common.clearFilters")}
+                actionLabel={t("events.clearFilters")}
               />
             </div>
           )}
+        </div>
+      </section>
 
+      <section className="events__cta">
+        <div className="site-container">
+          <div className="events__cta-inner">
+            <div className="events__cta-pattern"></div>
+
+            <div className="events__cta-content">
+              <span className="events__cta-label">{t("events.cta.label")}</span>
+
+              <h2>{t("events.cta.title")}</h2>
+
+              <p>{t("events.cta.description")}</p>
+            </div>
+
+            <Link to="/contact" className="events__cta-button">
+              {t("events.cta.button")} →
+            </Link>
+          </div>
         </div>
       </section>
     </main>
   );
 }
+
+export default Event;

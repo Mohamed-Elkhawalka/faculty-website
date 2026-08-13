@@ -12,9 +12,124 @@ const translation = {
     contact: "Contact",
   },
 
+  home: {
+    hero: {
+      eyebrow: "Faculty of Computers & Information",
+      title: "Building the",
+      highlight: "Future of Technology",
+      description:
+        "Discover a modern academic environment focused on knowledge, innovation, and preparing the next generation of technology leaders.",
+      explore: "Explore Departments",
+      learnMore: "Learn More",
+      cardTitle: "Learn. Innovate. Lead.",
+      cardText:
+        "Empowering students with the knowledge and skills needed to shape the future of technology.",
+      scroll: "Scroll to explore",
+    },
+
+    stats: {
+      departments: "Academic Departments",
+      programs: "Academic Programs",
+      faculty: "Faculty Members",
+      established: "Academic Year",
+    },
+
+    departments: {
+      label: "Academic Excellence",
+      title: "Explore Our Departments",
+      viewAll: "View All Departments",
+
+      cs: "Computer Science",
+      csDescription:
+        "Explore computing, algorithms, software development, and modern computer science.",
+
+      is: "Information Systems",
+      isDescription:
+        "Connect technology, business, and information to solve real-world problems.",
+
+      ai: "Artificial Intelligence",
+      aiDescription:
+        "Learn how intelligent systems and machine learning are shaping the future.",
+    },
+
+    features: {
+      label: "Why Choose Us",
+      title: "A Place to Learn and Grow",
+      description:
+        "Our faculty provides an environment where students can develop their technical knowledge, creativity, and professional skills.",
+
+      quality: {
+        title: "Quality Education",
+        text: "Learn from experienced academics through modern and engaging educational programs.",
+      },
+
+      innovation: {
+        title: "Innovation",
+        text: "Develop innovative ideas and explore emerging technologies that can shape the future.",
+      },
+
+      future: {
+        title: "Future Ready",
+        text: "Build the technical and professional skills needed to succeed in a rapidly changing world.",
+      },
+    },
+
+    cta: {
+      label: "Start Your Journey",
+      title: "Ready to Shape Your Future?",
+      description:
+        "Explore our programs, discover your interests, and take the next step toward your academic and professional goals.",
+      button: "Contact Us",
+    },
+  },
+  departments: {
+    eyebrow: "Academic Departments",
+    title: "Our Departments",
+    description:
+      "Explore our academic departments and discover the programs, expertise, and opportunities available to help you build your future in technology.",
+
+    label: "Academic Excellence",
+    exploreTitle: "Explore Our Departments",
+    exploreDescription:
+      "Discover the different academic fields and find the department that matches your interests and career goals.",
+
+    head: "Department Head",
+
+    cta: {
+      label: "Start Your Journey",
+      title: "Find Your Path in Technology",
+      description:
+        "Explore our academic programs and discover the opportunities waiting for you at the Faculty of Computers and Information.",
+      button: "Explore Programs",
+    },
+
+    items: {
+      cs: {
+        name: "Computer Science",
+        description:
+          "The Computer Science Department focuses on programming, algorithms, software engineering, and computer systems.",
+        head: "Dr. Ahmed Hassan",
+      },
+
+      is: {
+        name: "Information Systems",
+        description:
+          "The Information Systems Department focuses on information technology, databases, business systems, and enterprise solutions.",
+        head: "Dr. Mohamed Ali",
+      },
+
+      it: {
+        name: "Information Technology",
+        description:
+          "The Information Technology Department focuses on networks, infrastructure, cybersecurity, and IT services.",
+        head: "Dr. Sara Mahmoud",
+      },
+    },
+  },
+
   common: {
-    readMore: "Read More",
-    learnMore: "Learn More",
+    readMore: "Read more",
+    learnMore: "Learn more",
     search: "Search",
     filter: "Filter",
     submit: "Submit",
@@ -23,11 +138,16 @@ const translation = {
     noResults: "No results found",
     error: "Something went wrong",
     retry: "Retry",
+
+    menu: "Menu",
+    close: "Close",
+    navigation: "Navigation",
   },
+
   emptyState: {
-  description: "Try changing your search or filter.",
-  clearFilters: "Clear filters",
-},
+    description: "Try changing your search terms or filters.",
+    clearFilters: "Clear filters",
+  },
 
   about: {
     title: "About Us",
@@ -159,212 +279,373 @@ const translation = {
       "© 2026 Faculty of Computers & Information. All rights reserved.",
   },
   events: {
-  title: "Events",
+    eyebrow: "Events & Activities",
 
-  description:
-    "Discover upcoming events, workshops, seminars, competitions, and career opportunities.",
+    title: "Faculty Events",
 
-  searchAndFilter: "Search and filter events",
+    description:
+      "Discover upcoming conferences, workshops, seminars, competitions, and career opportunities.",
 
-  searchPlaceholder: "Search events...",
+    label: "Events & Activities",
 
-  filterByType: "Filter by type",
+    list: "Upcoming Events",
 
-  list: "Events",
+    listDescription:
+      "Take part in academic, technical, and professional events designed to help you develop your skills and build your future.",
 
-  filters: {
-    all: "All",
-  },
+    searchAndFilter: "Search and filter events",
 
-  types: {
-    conference: "Conference",
-    workshop: "Workshop",
-    seminar: "Seminar",
-    competition: "Competition",
-    career: "Career",
-  },
+    searchPlaceholder: "Search events...",
 
-  locations: {
-    mainAuditorium: "Main Auditorium",
-    computerLab1: "Computer Lab 1",
-    seminarHall: "Seminar Hall",
-    computerLab2: "Computer Lab 2",
-    facultyMainHall: "Faculty Main Hall",
-  },
+    filterByType: "Filter by type",
 
-  items: {
-    annualTechnologyConference: {
-      title: "Annual Technology Conference",
-      description:
-        "Join us for the annual technology conference featuring talks from technology experts and researchers.",
+    filters: {
+      all: "All",
     },
 
-    webDevelopmentWorkshop: {
-      title: "Web Development Workshop",
-      description:
-        "A practical workshop covering modern web development using React and modern frontend tools.",
+    resultCount: {
+      one: "event found",
+      other: "events found",
     },
 
-    artificialIntelligenceSeminar: {
-      title: "Artificial Intelligence Seminar",
-      description:
-        "Learn about recent developments in artificial intelligence and their applications in real-world systems.",
+    clearFilters: "Clear filters",
+
+    types: {
+      conference: "Conference",
+      workshop: "Workshop",
+      seminar: "Seminar",
+      competition: "Competition",
+      career: "Career Day",
     },
 
-    studentProgrammingContest: {
-      title: "Student Programming Contest",
-      description:
-        "Test your programming skills and compete with other students in a university programming contest.",
+    locations: {
+      mainAuditorium: "Main Auditorium",
+      computerLab1: "Computer Lab 1",
+      seminarHall: "Seminar Hall",
+      computerLab2: "Computer Lab 2",
+      facultyMainHall: "Faculty Main Hall",
     },
 
-    careerDay: {
-      title: "Career Day",
-      description:
-        "Meet technology companies and learn about internships, career opportunities, and industry requirements.",
-    },
-  },
-},
-announcements: {
-  title: "Announcements",
+    items: {
+      annualTechnologyConference: {
+        title: "Annual Technology Conference",
+        description:
+          "Join our annual technology conference featuring talks from technology experts and researchers.",
+      },
 
-  description:
-    "Stay informed about the latest university announcements, academic updates, and important student information.",
+      webDevelopmentWorkshop: {
+        title: "Web Development Workshop",
+        description:
+          "A practical workshop covering modern web development using React and modern frontend tools.",
+      },
 
-  searchPlaceholder: "Search announcements...",
+      artificialIntelligenceSeminar: {
+        title: "Artificial Intelligence Seminar",
+        description:
+          "Learn about the latest developments in artificial intelligence and its applications in real-world systems.",
+      },
 
-  searchAndFilter: "Search and filter announcements",
+      studentProgrammingContest: {
+        title: "Student Programming Contest",
+        description:
+          "Test your programming skills and compete with other students in the university programming contest.",
+      },
 
-  filterByType: "Filter by type",
-
-  filters: {
-    all: "All",
-  },
-
-  types: {
-    important: "Important",
-    academic: "Academic",
-    students: "Students",
-    general: "General",
-  },
-
-  list: "Latest Announcements",
-
-  resultCount: {
-    one: "announcement found",
-    other: "announcements found",
-  },
-
-  universityAnnouncement: "University Announcement",
-
-  readMore: "Read more",
-
-  clearFilters: "Clear filters",
-
-  items: {
-    registrationNewSemester: {
-      title: "Registration for the New Semester",
-      description:
-        "Registration for the new semester will start next week. Students are required to complete their registration before the deadline.",
+      careerDay: {
+        title: "Career Day",
+        description:
+          "Meet technology companies and learn about internship opportunities, employment, and industry requirements.",
+      },
     },
 
-    finalExamSchedule: {
-      title: "Final Exam Schedule",
+    cta: {
+      label: "Don't Miss Our Events",
+      title: "Participate, Learn, and Build Your Future",
       description:
-        "The final exam schedule has been published. Please check your courses and exam dates.",
-    },
-
-    studentActivities: {
-      title: "Student Activities",
-      description:
-        "Join our upcoming student activities and events throughout the semester.",
-    },
-
-    libraryOpeningHours: {
-      title: "Library Opening Hours",
-      description:
-        "The library will be open from 8:00 AM to 8:00 PM during the academic semester.",
+        "Explore upcoming events and become part of the faculty's academic and technical community.",
+      button: "Contact Us",
     },
   },
-},
-news: {
-  title: "News",
 
-  description:
-    "Stay updated with the latest news and activities from the Faculty of Computers and Information.",
+  announcements: {
+    title: "Announcements",
 
-  searchAndFilter: "Search and filter news",
+    eyebrow: "Latest Updates",
 
-  searchPlaceholder: "Search news...",
+    description:
+      "Stay informed about the latest university announcements, academic updates, and important student information.",
 
-  filterByCategory: "Filter by category",
+    label: "Stay Informed",
 
-  list: "Latest News",
+    latestTitle: "Latest Announcements",
 
-  filters: {
-    all: "All",
-    academic: "Academic",
-    research: "Research",
-    events: "Events",
-    students: "Students",
+    latestDescription:
+      "Explore the latest updates and important announcements from the college.",
+
+    searchPlaceholder: "Search announcements...",
+
+    searchAndFilter: "Search and filter announcements",
+
+    filterByType: "Filter by type",
+
+    filters: {
+      all: "All",
+    },
+
+    types: {
+      important: "Important",
+      academic: "Academic",
+      students: "Students",
+      general: "General",
+    },
+
+    list: "Latest Announcements",
+
+    resultCount: {
+      one: "announcement found",
+      other: "announcements found",
+    },
+
+    universityAnnouncement: "University Announcement",
+
+    readMore: "Read more",
+
+    clearFilters: "Clear filters",
+
+    cta: {
+      label: "Stay Connected",
+
+      title: "Never Miss an Important Update",
+
+      description:
+        "Stay connected with the college and keep up with the latest academic news, events, and important announcements.",
+
+      button: "Contact Us",
+    },
+
+    items: {
+      registrationNewSemester: {
+        title: "Registration for the New Semester",
+        description:
+          "Registration for the new semester will start next week. Students are required to complete their registration before the deadline.",
+      },
+
+      finalExamSchedule: {
+        title: "Final Exam Schedule",
+        description:
+          "The final exam schedule has been published. Please check your courses and exam dates.",
+      },
+
+      studentActivities: {
+        title: "Student Activities",
+        description:
+          "Join our upcoming student activities and events throughout the semester.",
+      },
+
+      libraryOpeningHours: {
+        title: "Library Opening Hours",
+        description:
+          "The library will be open from 8:00 AM to 8:00 PM during the academic semester.",
+      },
+    },
+  },
+  news: {
+    title: "News",
+
+    description:
+      "Stay updated with the latest news and activities from the Faculty of Computers and Information.",
+
+    eyebrow: "Latest Updates",
+
+    label: "News",
+
+    latestTitle: "Latest News",
+
+    latestDescription:
+      "Explore the latest academic, research, student, and faculty news.",
+
+    searchAndFilter: "Search and filter news",
+
+    searchPlaceholder: "Search news...",
+
+    filterByCategory: "Filter by category",
+
+    filters: {
+      all: "All",
+      academic: "Academic",
+      research: "Research",
+      events: "Events",
+      students: "Students",
+    },
+
+    resultCount: {
+      one: "news item found",
+      other: "news items found",
+    },
+
+    facultyNews: "Faculty News",
+
+    readMore: "Read More",
+
+    clearFilters: "Clear filters",
+
+    cta: {
+      label: "Stay Connected",
+
+      title: "Never Miss an Update",
+
+      description:
+        "Stay connected with the faculty and discover the latest news, events, and opportunities.",
+
+      button: "Explore Events",
+    },
+
+    items: {
+      programmingCompetition: {
+        title: "Programming Competition Registration Is Now Open",
+        description:
+          "The Faculty of Computers and Information announces the opening of registration for the annual programming competition.",
+        content:
+          "Students interested in competitive programming can now register for the annual programming competition. The competition aims to develop problem-solving, algorithmic thinking, and teamwork skills.",
+      },
+
+      artificialIntelligenceLab: {
+        title: "New Artificial Intelligence Research Lab",
+        description:
+          "The faculty has announced the launch of a new research laboratory dedicated to artificial intelligence and machine learning.",
+        content:
+          "The new Artificial Intelligence Lab provides an environment for students and researchers to develop innovative projects in artificial intelligence, machine learning, computer vision, and data science.",
+      },
+
+      webDevelopmentWorkshop: {
+        title: "Web Development Workshop",
+        description:
+          "A practical workshop covering modern web development technologies will be held at the faculty.",
+        content:
+          "The workshop introduces students to modern frontend development concepts, including React, component architecture, responsive design, and modern development practices.",
+      },
+
+      summerTraining: {
+        title: "Summer Training Program",
+        description:
+          "Registration is now available for the faculty summer training program.",
+        content:
+          "The summer training program provides students with practical experience through technical sessions, applied projects, and professional development activities.",
+      },
+
+      studentActivitiesWeek: {
+        title: "Student Activities Week",
+        description:
+          "The faculty announces a week of activities designed to encourage student participation and collaboration.",
+        content:
+          "Students can participate in a variety of academic, technical, cultural, and social activities during Student Activities Week.",
+      },
+    },
   },
 
-  resultCount: {
-    one: "article found",
-    other: "articles found",
+  programs: {
+    eyebrow: "Academic Programs",
+    title: "Our Programs",
+    description:
+      "Explore our academic programs and discover the opportunities available to build your future in technology.",
+
+    label: "Academic Excellence",
+    exploreTitle: "Explore Our Programs",
+    exploreDescription:
+      "Choose the academic program that matches your interests, skills, and career goals.",
+
+    degree: "Degree",
+    duration: "Duration",
+    viewProgram: "View Program",
+
+    items: {
+      cs: {
+        name: "Computer Science",
+        degree: "Bachelor",
+        duration: "4 years",
+        description:
+          "A program covering programming, algorithms, data structures, software engineering, and computer systems.",
+      },
+
+      ai: {
+        name: "Artificial Intelligence",
+        degree: "Bachelor",
+        duration: "4 years",
+        description:
+          "A program focused on machine learning, artificial intelligence, data analysis, and intelligent systems.",
+      },
+
+      is: {
+        name: "Information Systems",
+        degree: "Bachelor",
+        duration: "4 years",
+        description:
+          "A program combining information technology with business and organizational systems.",
+      },
+
+      it: {
+        name: "Information Technology",
+        degree: "Bachelor",
+        duration: "4 years",
+        description:
+          "A program covering networks, cybersecurity, infrastructure, and modern IT technologies.",
+      },
+    },
+
+    cta: {
+      label: "Start Your Journey",
+      title: "Find the Right Program for You",
+      description:
+        "Explore our departments and discover where your interests and career goals can take you.",
+      button: "Explore Departments",
+    },
   },
+  services: {
+    eyebrow: "Student Support",
+    title: "University Services",
+    description:
+      "Access the academic, administrative, and support services available to help you succeed throughout your university journey.",
 
-  readMore: "Read More",
+    label: "Student Support",
+    exploreTitle: "Explore Our Services",
+    exploreDescription:
+      "Discover the services available to support your academic experience and make university life easier.",
 
-  backToNews: "Back to News",
+    learnMore: "Learn more",
 
-  articleNotFound: "News article not found",
-
-  articleNotFoundDescription:
-    "The news article you are looking for does not exist.",
-
-  items: {
-    programmingCompetition: {
-      title: "Programming Competition Registration Is Now Open",
-      description:
-        "The Faculty of Computers and Information announces the opening of registration for the annual programming competition.",
-      content:
-        "Students interested in competitive programming can now register for the annual faculty programming competition. The competition aims to encourage problem-solving skills, algorithmic thinking, and teamwork among students.",
+    categories: {
+      student: "Student Services",
+      academic: "Academic Services",
     },
 
-    artificialIntelligenceLab: {
-      title: "New Artificial Intelligence Research Lab",
-      description:
-        "The faculty has announced the launch of a new research laboratory dedicated to artificial intelligence and machine learning.",
-      content:
-        "The new AI Research Lab provides students and researchers with an environment for developing innovative projects in artificial intelligence, machine learning, computer vision, and data science.",
+    items: {
+      studentAffairs: {
+        name: "Student Affairs",
+        description:
+          "Provides academic and administrative support for students.",
+      },
+
+      library: {
+        name: "University Library",
+        description:
+          "Provides access to books, research materials, and digital resources.",
+      },
+
+      academicRegistration: {
+        name: "Academic Registration",
+        description:
+          "Allows students to manage course registration and academic schedules.",
+      },
     },
 
-    webDevelopmentWorkshop: {
-      title: "Web Development Workshop",
+    cta: {
+      label: "Need Assistance?",
+      title: "We're Here to Support You",
       description:
-        "A practical workshop covering modern web development technologies will be held at the faculty.",
-      content:
-        "The workshop introduces students to modern frontend development concepts, including React, component-based architecture, responsive design, and modern development practices.",
-    },
-
-    summerTraining: {
-      title: "Summer Training Program",
-      description:
-        "Registration is now available for the faculty summer training program.",
-      content:
-        "The summer training program provides students with practical experience through technical sessions, hands-on projects, and professional development activities.",
-    },
-
-    studentActivitiesWeek: {
-      title: "Student Activities Week",
-      description:
-        "The faculty announces a week of activities designed to encourage student participation and collaboration.",
-      content:
-        "Students can participate in a variety of academic, technical, cultural, and social activities throughout Student Activities Week.",
+        "Explore our services and find the support you need throughout your academic journey.",
+      button: "Contact Us",
     },
   },
-},
-
 };
 
 export default translation;

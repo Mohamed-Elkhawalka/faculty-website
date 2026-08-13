@@ -1,15 +1,13 @@
 import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
-
 import announcements from "../../Data/announcement";
 import SearchBar from "../../UI/SearchBar/SearchBar";
 import Filter from "../../UI/Filter/Filter";
 import EmptyState from "../../UI/EmptyState/EmptyState";
 import AnnouncementCard from "../../Cards/AnnouncementCard/AnnouncementCard";
+import "./Announcement.css";
 
-import styles from "./Announcement.module.css";
-
-export default function Announcement() {
+function Announcement() {
   const { t } = useTranslation();
 
   const [search, setSearch] = useState("");
@@ -46,13 +44,11 @@ export default function Announcement() {
       const description = t(announcement.descriptionKey).toLowerCase();
 
       const matchesSearch =
-        title.includes(searchText) ||
-        description.includes(searchText);
+        title.includes(searchText) || description.includes(searchText);
 
       const matchesType =
         selectedType === "all" ||
-        announcement.typeKey ===
-          `announcements.types.${selectedType}`;
+        announcement.typeKey === `announcements.types.${selectedType}`;
 
       return matchesSearch && matchesType;
     });
@@ -64,27 +60,43 @@ export default function Announcement() {
   };
 
   return (
-    <main className={styles.announcementsPage}>
-      <section
-        className={`${styles.announcementsSection} bg-slate-100`}
-        aria-labelledby="announcements-title"
-      >
-        <div className={styles.announcementsContainer}>
+    <main className="announcements">
+      <section className="announcements__hero">
+        <div className="announcements__hero-pattern"></div>
 
-          {/* Header */}
-          <div className={styles.announcementsHeader}>
-            <div className={styles.announcementsHeaderText}>
-              <h1 id="announcements-title">
-                {t("announcements.title")}
-              </h1>
+        <div className="site-container announcements__hero-container">
+          <span className="announcements__eyebrow">
+            {t("announcements.eyebrow")}
+          </span>
 
-              <p>
-                {t("announcements.description")}
-              </p>
+          <h1 className="announcements__title">{t("announcements.title")}</h1>
+
+          <p className="announcements__description">
+            {t("announcements.description")}
+          </p>
+        </div>
+      </section>
+
+      <section className="announcements__section">
+        <div className="site-container">
+          <div className="announcements__section-header">
+            <div>
+              <span className="announcements__section-label">
+                {t("announcements.label")}
+              </span>
+
+              <h2>{t("announcements.latestTitle")}</h2>
             </div>
 
-            {/* Search & Filter */}
-            <div className={styles.announcementsControls}>
+            <p>{t("announcements.latestDescription")}</p>
+          </div>
+
+          <div className="announcements__controls-wrapper">
+            <div className="announcements__controls-title">
+              {t("announcements.searchAndFilter")}
+            </div>
+
+            <div className="announcements__controls">
               <SearchBar
                 value={search}
                 onChange={setSearch}
@@ -93,6 +105,7 @@ export default function Announcement() {
               />
 
               <Filter
+                id="announcement-type-filter"
                 value={selectedType}
                 onChange={setSelectedType}
                 options={filterOptions}
@@ -101,9 +114,20 @@ export default function Announcement() {
             </div>
           </div>
 
-          {/* Announcements */}
+          <div className="announcements__results-header">
+            <span>
+              {t(
+                filteredAnnouncements.length === 1
+                  ? "announcements.resultCount.one"
+                  : "announcements.resultCount.other",
+              )}
+            </span>
+
+            <strong>{filteredAnnouncements.length}</strong>
+          </div>
+
           {filteredAnnouncements.length > 0 ? (
-            <div className={styles.announcementsGrid}>
+            <div className="announcements__grid">
               {filteredAnnouncements.map((announcement) => (
                 <AnnouncementCard
                   key={announcement.id}
@@ -112,16 +136,39 @@ export default function Announcement() {
               ))}
             </div>
           ) : (
-            <div className={styles.announcementsEmpty}>
+            <div className="announcements__empty">
               <EmptyState
                 onAction={handleClearFilters}
                 actionLabel={t("announcements.clearFilters")}
               />
             </div>
           )}
+        </div>
+      </section>
 
+      <section className="announcements__cta">
+        <div className="site-container">
+          <div className="announcements__cta-inner">
+            <div className="announcements__cta-pattern"></div>
+
+            <div className="announcements__cta-content">
+              <span className="announcements__cta-label">
+                {t("announcements.cta.label")}
+              </span>
+
+              <h2>{t("announcements.cta.title")}</h2>
+
+              <p>{t("announcements.cta.description")}</p>
+            </div>
+
+            <a href="/contact" className="announcements__cta-button">
+              {t("announcements.cta.button")} →
+            </a>
+          </div>
         </div>
       </section>
     </main>
   );
 }
+
+export default Announcement;
