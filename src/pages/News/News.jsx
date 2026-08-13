@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 import news from "../../Data/news";
@@ -51,12 +52,10 @@ export default function News() {
       const description = t(item.descriptionKey).toLowerCase();
 
       const matchesSearch =
-        title.includes(searchText) ||
-        description.includes(searchText);
+        title.includes(searchText) || description.includes(searchText);
 
       const matchesCategory =
-        category === "all" ||
-        item.categoryKey === `news.filters.${category}`;
+        category === "all" || item.categoryKey === `news.filters.${category}`;
 
       return matchesSearch && matchesCategory;
     });
@@ -68,34 +67,42 @@ export default function News() {
   };
 
   return (
-    <main className={styles.newsPage}>
-      <section
-        className={`${styles.newsSection} bg-slate-100`}
-        aria-labelledby="news-title"
-      >
-        <div className={styles.newsContainer}>
+    <main className={styles.news}>
+      <section className={styles.newsHero}>
+        <div className={styles.newsHeroPattern}></div>
 
-          {/* Header */}
-          <div className={styles.newsHeader}>
-            <div className={styles.newsHeaderText}>
-              <h1 id="news-title">
-                {t("news.title")}
-              </h1>
+        <div className={`site-container ${styles.newsHeroContainer}`}>
+          <span className={styles.newsEyebrow}>{t("news.eyebrow")}</span>
 
-              <p>
-                {t("news.description")}
-              </p>
+          <h1 className={styles.newsTitle}>{t("news.title")}</h1>
+
+          <p className={styles.newsHeroDescription}>{t("news.description")}</p>
+        </div>
+      </section>
+
+      <section className={styles.newsSection}>
+        <div className="site-container">
+          <div className={styles.newsSectionHeader}>
+            <div>
+              <span className={styles.newsSectionLabel}>{t("news.label")}</span>
+
+              <h2>{t("news.latestTitle")}</h2>
             </div>
 
-            {/* Search & Filter */}
-            <div className={styles.newsControls}>
+            <p>{t("news.latestDescription")}</p>
+          </div>
+
+          <div className={styles.newsControls}>
+            <div className={styles.newsSearch}>
               <SearchBar
                 value={search}
                 onChange={setSearch}
                 placeholder={t("news.searchPlaceholder")}
                 label={t("common.search")}
               />
+            </div>
 
+            <div className={styles.newsFilter}>
               <Filter
                 id="news-category-filter"
                 value={category}
@@ -106,14 +113,18 @@ export default function News() {
             </div>
           </div>
 
-          {/* Results */}
           {filteredNews.length > 0 ? (
             <div className={styles.newsGrid}>
-              {filteredNews.map((item) => (
-                <NewsCard
+              {filteredNews.map((item, index) => (
+                <div
                   key={item.id}
-                  news={item}
-                />
+                  className={styles.newsCardWrapper}
+                  style={{
+                    "--news-delay": `${index * 0.07}s`,
+                  }}
+                >
+                  <NewsCard news={item} />
+                </div>
               ))}
             </div>
           ) : (
@@ -124,7 +135,26 @@ export default function News() {
               />
             </div>
           )}
+        </div>
+      </section>
 
+      <section className={styles.newsCta}>
+        <div className="site-container">
+          <div className={styles.newsCtaInner}>
+            <div className={styles.newsCtaPattern}></div>
+
+            <div className={styles.newsCtaContent}>
+              <span className={styles.newsCtaLabel}>{t("news.cta.label")}</span>
+
+              <h2>{t("news.cta.title")}</h2>
+
+              <p>{t("news.cta.description")}</p>
+            </div>
+
+            <Link to="/events" className={styles.newsCtaButton}>
+              {t("news.cta.button")} →
+            </Link>
+          </div>
         </div>
       </section>
     </main>

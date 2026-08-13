@@ -1,73 +1,98 @@
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import LanguageSwitcher from "../../LanguageSwitcher";
 import { useTranslation } from "react-i18next";
+
+import LanguageSwitcher from "../../../LanguageSwitcher/LanguageSwitcher";
+import MobileNavbar from "../MobileNavbar/MobileNavbar";
 import facultyLogo from "../../../assets/navbar/FCDS_logo.jpg";
+
 import "./Navbar.css";
+
+const NAV_LINKS = [
+  { path: "/", translationKey: "navbar.home" },
+  { path: "/about", translationKey: "navbar.about" },
+  { path: "/departments", translationKey: "navbar.departments" },
+  { path: "/programs", translationKey: "navbar.programs" },
+  { path: "/news", translationKey: "navbar.news" },
+  { path: "/announcements", translationKey: "navbar.announcements" },
+  { path: "/faculty", translationKey: "navbar.faculty" },
+  { path: "/services", translationKey: "navbar.services" },
+  { path: "/events", translationKey: "navbar.events" },
+  { path: "/contact", translationKey: "navbar.contact" },
+];
 
 function Navbar() {
   const { t } = useTranslation();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const navLinks = [
-    { path: "/", label: t("navbar.home") },
-    { path: "/about", label: t("navbar.about") },
-    { path: "/departments", label: t("navbar.departments") },
-    { path: "/programs", label: t("navbar.programs") },
-    { path: "/news", label: t("navbar.news") },
-    { path: "/announcements", label: t("navbar.announcements") },
-    { path: "/faculty", label: t("navbar.faculty") },
-    { path: "/services", label: t("navbar.services") },
-    { path: "/events", label: t("navbar.events") },
-    { path: "/contact", label: t("navbar.contact") },
-  ];
+  const navLinks = NAV_LINKS.map((link) => ({
+    ...link,
+    label: t(link.translationKey),
+  }));
+
+  const openMobileMenu = () => {
+    setIsMobileMenuOpen(true);
+  };
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
 
   return (
-    <header className="navbar">
-      <div className="navbar__container">
-        {/* Faculty Logo */}
-        <NavLink to="/" className="navbar__brand">
-          <img
-            className="navbar__faculty-icon"
-            src={facultyLogo}
-            alt="Faculty of Computers and Information"
-          />
-        </NavLink>
+    <>
+      <header className="navbar">
+        <div className="navbar__container">
+          <NavLink to="/" className="navbar__brand">
+            <img
+              className="navbar__faculty-icon"
+              src={facultyLogo}
+              alt="Faculty of Computers and Information"
+            />
+          </NavLink>
 
-        {/* Desktop Navigation */}
-        <nav className="navbar__nav" aria-label="Main navigation">
-          {navLinks.map(({ path, label }) => (
-            <NavLink
-              key={path}
-              to={path}
-              end={path === "/"}
-              className={({ isActive }) =>
-                `navbar__link ${isActive ? "navbar__link--active" : ""}`
-              }
+          <nav className="navbar__nav" aria-label="Main navigation">
+            {navLinks.map(({ path, label }) => (
+              <NavLink
+                key={path}
+                to={path}
+                end={path === "/"}
+                className={({ isActive }) =>
+                  `navbar__link ${isActive ? "navbar__link--active" : ""}`
+                }
+              >
+                {label}
+              </NavLink>
+            ))}
+          </nav>
+
+          <div className="navbar__actions">
+            <div className="navbar__desktop-language">
+              <LanguageSwitcher />
+            </div>
+
+            <button
+              className="navbar__menu-button"
+              type="button"
+              onClick={openMobileMenu}
+              aria-label={t("common.menu")}
+              aria-expanded={isMobileMenuOpen}
+              aria-controls="mobile-navigation"
             >
-              {label}
-            </NavLink>
-          ))}
-        </nav>
-
-        {/* Navbar Actions */}
-        <div className="navbar__actions">
-          {/* Desktop Language Switcher */}
-          <div className="navbar__desktop-language">
-            <LanguageSwitcher />
+              <span />
+              <span />
+              <span />
+            </button>
           </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            className="navbar__menu-button"
-            type="button"
-            aria-label="Open menu"
-          >
-            <span />
-            <span />
-            <span />
-          </button>
         </div>
-      </div>
-    </header>
+      </header>
+
+      <MobileNavbar
+        id="mobile-navigation"
+        isOpen={isMobileMenuOpen}
+        onClose={closeMobileMenu}
+        navLinks={navLinks}
+      />
+    </>
   );
 }
 

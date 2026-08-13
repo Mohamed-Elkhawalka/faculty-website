@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { facultyData } from "../../data/faculty";
-import FacultyCard from "../../Components/cards/FacultyCard/FacultyCard";
+import FacultyCard from "../../cards/FacultyCard/FacultyCard";
 import "./Faculty.css";
 
 function Faculty() {
