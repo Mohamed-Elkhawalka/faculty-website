@@ -4,7 +4,7 @@ import LanguageSwitcher from "../components/LanguageSwitcher";
 function App() {
   return (
     <>
-      <header>
+      <header className="site-header">
         <LanguageSwitcher />
       </header>
 
