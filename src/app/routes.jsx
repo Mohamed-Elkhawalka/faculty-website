@@ -5,6 +5,7 @@ import App from "./App";
 import Home from "../pages/Home/Home";
 import About from "../pages/About/About";
 import Departments from "../pages/Departments/Departments";
+import DepartmentsDetails from "../pages/Departments/DepartmentsDetails";
 import Programs from "../pages/Programs/Programs";
 import News from "../pages/News/News";
 import NewsDetails from "../pages/News/NewsDetails";
@@ -40,7 +41,7 @@ const router = createBrowserRouter([
 
       {
         path: "departments/:id",
-        element: <div>Department Details</div>,
+        element: <DepartmentsDetails />,
       },
 
       {

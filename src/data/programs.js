@@ -7,6 +7,7 @@ export const programs = [
     durationKey: "programs.items.cs.duration",
     descriptionKey: "programs.items.cs.description",
   },
+
   {
     id: "ai-program",
     nameKey: "programs.items.ai.name",
@@ -15,6 +16,7 @@ export const programs = [
     durationKey: "programs.items.ai.duration",
     descriptionKey: "programs.items.ai.description",
   },
+
   {
     id: "is-program",
     nameKey: "programs.items.is.name",
@@ -23,6 +25,7 @@ export const programs = [
     durationKey: "programs.items.is.duration",
     descriptionKey: "programs.items.is.description",
   },
+
   {
     id: "it-program",
     nameKey: "programs.items.it.name",

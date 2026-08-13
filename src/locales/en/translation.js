@@ -102,10 +102,10 @@ const translation = {
         "Explore our academic programs and discover the opportunities waiting for you at the Faculty of Computers and Information.",
       button: "Explore Programs",
     },
-
     items: {
       cs: {
         name: "Computer Science",
+        shortName: "CS",
         description:
           "The Computer Science Department focuses on programming, algorithms, software engineering, and computer systems.",
         head: "Dr. Ahmed Hassan",
@@ -113,6 +113,7 @@ const translation = {
 
       is: {
         name: "Information Systems",
+        shortName: "IS",
         description:
           "The Information Systems Department focuses on information technology, databases, business systems, and enterprise solutions.",
         head: "Dr. Mohamed Ali",
@@ -120,9 +121,42 @@ const translation = {
 
       it: {
         name: "Information Technology",
+        shortName: "IT",
         description:
           "The Information Technology Department focuses on networks, infrastructure, cybersecurity, and IT services.",
         head: "Dr. Sara Mahmoud",
+      },
+    },
+
+    detail: {
+      eyebrow: "Department",
+      notFound: "Error",
+      notFoundTitle: "Department Not Found",
+      notFoundDescription: "The department you are looking for does not exist.",
+      backToDepartments: "Back to Departments",
+
+      overviewLabel: "Overview",
+      overviewTitle: "About the Department",
+      overviewDescription:
+        "Learn more about the department, its leadership, and its academic programs.",
+
+      departmentHead: "Department Head",
+      programs: "Programs",
+      programsAvailable: "programs available",
+      department: "Department",
+
+      programsLabel: "Academic Programs",
+      programsTitle: "Programs Offered",
+      programsDescription:
+        "Explore the academic programs offered by this department.",
+
+      noPrograms: "No programs are currently available.",
+
+      cta: {
+        label: "Explore More",
+        title: "Find the right program for you",
+        description: "Explore all academic programs offered by the faculty.",
+        button: "View Programs",
       },
     },
   },
