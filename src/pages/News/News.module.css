@@ -1,0 +1,158 @@
+.newsPage {
+  min-height: 70vh;
+  background: var(--bg);
+}
+
+.newsSection {
+  padding: 56px 0;
+}
+
+.newsContainer {
+  width: min(1120px, 90%);
+  margin: 0 auto;
+}
+
+/* =========================
+   Header
+========================= */
+
+.newsHeader {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 32px;
+  margin-bottom: 40px;
+}
+
+.newsHeaderText {
+  flex: 1;
+}
+
+.newsHeaderText h1 {
+  margin: 0 0 8px;
+  color: var(--text-dark);
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.newsHeaderText p {
+  max-width: 600px;
+  margin: 0;
+  color: var(--text-body);
+  line-height: 1.7;
+}
+
+/* =========================
+   Search & Filter
+========================= */
+
+.newsControls {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.newsControls > * {
+  min-width: 190px;
+}
+
+.newsControls > :first-child {
+  min-width: 260px;
+}
+
+/* =========================
+   News Grid
+========================= */
+
+.newsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+/* =========================
+   Empty State
+========================= */
+
+.newsEmpty {
+  padding: 48px 24px;
+  color: var(--text-body);
+  text-align: center;
+  background: var(--surface);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-md);
+}
+
+/* =========================
+   Tablet
+========================= */
+
+@media (max-width: 900px) {
+  .newsHeader {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .newsHeaderText {
+    text-align: center;
+  }
+
+  .newsHeaderText p {
+    margin: 0 auto;
+  }
+
+  .newsControls {
+    width: 100%;
+  }
+
+  .newsControls > * {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .newsControls > :first-child {
+    min-width: 0;
+  }
+
+  .newsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* =========================
+   Mobile
+========================= */
+
+@media (max-width: 600px) {
+  .newsSection {
+    padding: 40px 0;
+  }
+
+  .newsContainer {
+    width: min(100% - 32px, 500px);
+  }
+
+  .newsHeader {
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+
+  .newsHeaderText h1 {
+    font-size: 1.8rem;
+  }
+
+  .newsControls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .newsControls > * {
+    width: 100%;
+  }
+
+  .newsGrid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}

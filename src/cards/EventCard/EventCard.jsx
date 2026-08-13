@@ -1,53 +1,74 @@
 
+import { useTranslation } from "react-i18next";
+import styles from "./EventCard.module.css";
+
 export default function EventCard({ event }) {
+  const { t } = useTranslation();
+
   if (!event) {
     return null;
   }
 
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-200 transition duration-300 hover:-translate-y-1 hover:shadow-lg">
-      <div className="relative h-52 overflow-hidden">
+    <article className={styles.card}>
+      {/* Image */}
+      <div className={styles.imageWrapper}>
         <img
           src={event.image}
-          alt={event.title}
+          alt={t(event.titleKey)}
           loading="lazy"
-          className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+          className={styles.image}
         />
 
-        <span className="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1 text-xs font-semibold text-blue-700 shadow-sm">
-          {event.type}
+        <span className={styles.type}>
+          {t(event.typeKey)}
         </span>
       </div>
 
-      <div className="flex flex-1 flex-col p-6">
+      {/* Content */}
+      <div className={styles.content}>
+        {/* Date */}
         <time
           dateTime={event.date}
-          className="mb-3 text-sm font-medium text-blue-600"
+          className={styles.date}
         >
           {event.date}
         </time>
 
-        <h2 className="mb-3 text-xl font-bold leading-snug text-gray-900">
-          {event.title}
+        {/* Title */}
+        <h2 className={styles.title}>
+          {t(event.titleKey)}
         </h2>
 
-        <p className="mb-6 flex-1 text-sm leading-6 text-gray-600">
-          {event.description}
+        {/* Description */}
+        <p className={styles.description}>
+          {t(event.descriptionKey)}
         </p>
 
-        <div className="space-y-3 border-t border-gray-100 pt-4">
-          <div className="flex items-center gap-3 text-sm text-gray-600">
-            <span>{event.time}</span>
+        {/* Event Information */}
+        <div className={styles.eventInfo}>
+          <div className={styles.infoRow}>
+            <span className={styles.infoLabel}>
+              Time
+            </span>
+
+            <span>
+              {event.time}
+            </span>
           </div>
 
-          <div className="flex items-center gap-3 text-sm text-gray-600">
-            <span>{event.location}</span>
+          <div className={styles.infoRow}>
+            <span className={styles.infoLabel}>
+              Location
+            </span>
+
+            <span>
+              {t(event.locationKey)}
+            </span>
           </div>
         </div>
       </div>
     </article>
   );
 }
-
-
 

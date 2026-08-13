@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 import news from "../../Data/news";
 import SearchBar from "../../UI/SearchBar/SearchBar";
@@ -6,123 +7,126 @@ import Filter from "../../UI/Filter/Filter";
 import EmptyState from "../../UI/EmptyState/EmptyState";
 import NewsCard from "../../Cards/NewsCard/NewsCard";
 
+import styles from "./News.module.css";
+
 const FILTER_OPTIONS = [
   {
     value: "all",
-    label: "All",
+    translationKey: "news.filters.all",
   },
   {
-    value: "Academic",
-    label: "Academic",
+    value: "academic",
+    translationKey: "news.filters.academic",
   },
   {
-    value: "Research",
-    label: "Research",
+    value: "research",
+    translationKey: "news.filters.research",
   },
   {
-    value: "Events",
-    label: "Events",
+    value: "events",
+    translationKey: "news.filters.events",
   },
   {
-    value: "Students",
-    label: "Students",
+    value: "students",
+    translationKey: "news.filters.students",
   },
 ];
 
 export default function News() {
+  const { t } = useTranslation();
+
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("all");
+
+  const filterOptions = FILTER_OPTIONS.map((option) => ({
+    value: option.value,
+    label: t(option.translationKey),
+  }));
 
   const filteredNews = useMemo(() => {
     const searchText = search.trim().toLowerCase();
 
     return news.filter((item) => {
+      const title = t(item.titleKey).toLowerCase();
+      const description = t(item.descriptionKey).toLowerCase();
+
       const matchesSearch =
-        item.title.toLowerCase().includes(searchText) ||
-        item.description.toLowerCase().includes(searchText);
+        title.includes(searchText) ||
+        description.includes(searchText);
 
       const matchesCategory =
-        category === "all" || item.category === category;
+        category === "all" ||
+        item.categoryKey === `news.filters.${category}`;
 
       return matchesSearch && matchesCategory;
     });
-  }, [search, category]);
+  }, [search, category, t]);
 
   const handleClearFilters = () => {
     setSearch("");
     setCategory("all");
   };
 
-  const resultCount = filteredNews.length;
-
   return (
-    <main className="min-h-screen bg-gray-50 px-4 py-10 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-7xl">
-        {/* Page Header */}
-        <header className="mb-8 text-center">
-          <h1 className="mx-auto max-w-3xl text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            News
-          </h1>
+    <main className={styles.newsPage}>
+      <section
+        className={`${styles.newsSection} bg-slate-100`}
+        aria-labelledby="news-title"
+      >
+        <div className={styles.newsContainer}>
 
-          <p className="mx-auto mt-2 max-w-3xl text-base leading-7 text-gray-600">
-            Stay updated with the latest news and activities from the Faculty
-            of Computers and Information.
-          </p>
-        </header>
+          {/* Header */}
+          <div className={styles.newsHeader}>
+            <div className={styles.newsHeaderText}>
+              <h1 id="news-title">
+                {t("news.title")}
+              </h1>
 
-        {/* Search & Filter */}
-        <section
-          aria-label="News search and filtering"
-          className="mb-8 grid grid-cols-1 items-end gap-4 md:grid-cols-3"
-        >
-          <div className="md:col-span-2">
-            <SearchBar
-              value={search}
-              onChange={setSearch}
-              placeholder="Search news..."
-            />
+              <p>
+                {t("news.description")}
+              </p>
+            </div>
+
+            {/* Search & Filter */}
+            <div className={styles.newsControls}>
+              <SearchBar
+                value={search}
+                onChange={setSearch}
+                placeholder={t("news.searchPlaceholder")}
+                label={t("common.search")}
+              />
+
+              <Filter
+                id="news-category-filter"
+                value={category}
+                onChange={setCategory}
+                options={filterOptions}
+                label={t("news.filterByCategory")}
+              />
+            </div>
           </div>
 
-          <Filter
-            id="news-category-filter"
-            value={category}
-            onChange={setCategory}
-            options={FILTER_OPTIONS}
-            label="Filter by category"
-          />
+          {/* Results */}
+          {filteredNews.length > 0 ? (
+            <div className={styles.newsGrid}>
+              {filteredNews.map((item) => (
+                <NewsCard
+                  key={item.id}
+                  news={item}
+                />
+              ))}
+            </div>
+          ) : (
+            <div className={styles.newsEmpty}>
+              <EmptyState
+                onAction={handleClearFilters}
+                actionLabel={t("news.clearFilters")}
+              />
+            </div>
+          )}
 
-          
-        </section>
-
-        {/* Results Information */}
-        <div className="mb-5">
-          <h2 className="text-xl font-semibold text-gray-900">
-            Latest News
-          </h2>
-
-          <p className="mt-1 text-sm text-gray-500" aria-live="polite">
-            {resultCount}{" "}
-            {resultCount === 1 ? "article" : "articles"} found
-          </p>
         </div>
-
-        {/* News Results */}
-        {resultCount === 0 ? (
-          <EmptyState
-            onAction={handleClearFilters}
-            actionLabel="Clear filters"
-          />
-        ) : (
-          <section
-            aria-label="News articles"
-            className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
-          >
-            {filteredNews.map((item) => (
-              <NewsCard key={item.id} news={item} />
-            ))}
-          </section>
-        )}
-      </div>
+      </section>
     </main>
   );
 }

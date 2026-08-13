@@ -3,63 +3,57 @@ import ResearchLab from "../assets/news/ResearchLab.png";
 import web from "../assets/news/web.png";
 import training from "../assets/news/training.png";
 import Activities from "../assets/news/Activities.png";
+
 const news = [
   {
     id: 1,
-    title: "Programming Competition Registration Is Now Open",
-    description:
-      "The Faculty of Computers and Information announces the opening of registration for the annual programming competition.",
-    content:
-      "Students interested in competitive programming can now register for the annual faculty programming competition. The competition aims to encourage problem-solving skills, algorithmic thinking, and teamwork among students.",
+    titleKey: "news.items.programmingCompetition.title",
+    descriptionKey: "news.items.programmingCompetition.description",
+    contentKey: "news.items.programmingCompetition.content",
     date: "2026-08-05",
-    category: "Academic",
-    image:ecpcImage,
+    categoryKey: "news.filters.academic",
+    image: ecpcImage,
   },
+
   {
     id: 2,
-    title: "New Artificial Intelligence Research Lab",
-    description:
-      "The faculty has announced the launch of a new research laboratory dedicated to artificial intelligence and machine learning.",
-    content:
-      "The new AI Research Lab provides students and researchers with an environment for developing innovative projects in artificial intelligence, machine learning, computer vision, and data science.",
+    titleKey: "news.items.artificialIntelligenceLab.title",
+    descriptionKey: "news.items.artificialIntelligenceLab.description",
+    contentKey: "news.items.artificialIntelligenceLab.content",
     date: "2026-08-02",
-    category: "Research",
+    categoryKey: "news.filters.research",
     image: ResearchLab,
   },
+
   {
     id: 3,
-    title: "Web Development Workshop",
-    description:
-      "A practical workshop covering modern web development technologies will be held at the faculty.",
-    content:
-      "The workshop introduces students to modern frontend development concepts, including React, component-based architecture, responsive design, and modern development practices.",
+    titleKey: "news.items.webDevelopmentWorkshop.title",
+    descriptionKey: "news.items.webDevelopmentWorkshop.description",
+    contentKey: "news.items.webDevelopmentWorkshop.content",
     date: "2026-07-28",
-    category: "Events",
+    categoryKey: "news.filters.events",
     image: web,
   },
+
   {
     id: 4,
-    title: "Summer Training Program",
-    description:
-      "Registration is now available for the faculty summer training program.",
-    content:
-      "The summer training program provides students with practical experience through technical sessions, hands-on projects, and professional development activities.",
+    titleKey: "news.items.summerTraining.title",
+    descriptionKey: "news.items.summerTraining.description",
+    contentKey: "news.items.summerTraining.content",
     date: "2026-07-25",
-    category: "Students",
+    categoryKey: "news.filters.students",
     image: training,
   },
+
   {
     id: 5,
-    title: "Student Activities Week",
-    description:
-      "The faculty announces a week of activities designed to encourage student participation and collaboration.",
-    content:
-      "Students can participate in a variety of academic, technical, cultural, and social activities throughout Student Activities Week.",
+    titleKey: "news.items.studentActivitiesWeek.title",
+    descriptionKey: "news.items.studentActivitiesWeek.description",
+    contentKey: "news.items.studentActivitiesWeek.content",
     date: "2026-07-20",
-    category: "Students",
+    categoryKey: "news.filters.students",
     image: Activities,
   },
 ];
 
 export default news;
-
