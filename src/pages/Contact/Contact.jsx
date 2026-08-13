@@ -157,7 +157,9 @@ function Contact() {
             {errors.message && <p>{errors.message}</p>}
           </div>
 
-          <button type="submit">{t("common.submit")}</button>
+          <button type="submit">
+            {t("common.submit")}
+          </button>
 
           {submitted && <p>{t("contact.success")}</p>}
         </form>
