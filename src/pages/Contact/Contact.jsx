@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import "./Contact.css";
 
 function Contact() {
   const { t } = useTranslation();
@@ -77,92 +78,148 @@ function Contact() {
   };
 
   return (
-    <main>
-      <section>
-        <h1>{t("contact.title")}</h1>
-
-        <div>
-          <h2>{t("contact.address")}</h2>
-          <p>Alexandria, Egypt</p>
-
-          <h2>{t("contact.phone")}</h2>
-          <p>+20 123 456 7890</p>
-
-          <h2>{t("contact.email")}</h2>
-          <p>info@faculty.edu.eg</p>
+    <main className="contact-page">
+      <section className="contact-hero">
+        <div className="contact-hero__content">
+          <h1>{t("contact.title")}</h1>
+          <p>{t("contact.formTitle")}</p>
         </div>
       </section>
 
-      <section>
-        <h2>{t("contact.formTitle")}</h2>
+      <section className="contact-content">
+        <div className="contact-info">
+          <h2>{t("contact.title")}</h2>
 
-        <form onSubmit={handleSubmit} noValidate>
-          <div>
-            <label htmlFor="name">{t("contact.fields.name")}</label>
-
-            <input
-              id="name"
-              name="name"
-              type="text"
-              value={formData.name}
-              onChange={handleChange}
-              placeholder={t("contact.placeholders.name")}
-            />
-
-            {errors.name && <p>{errors.name}</p>}
+          <div className="contact-info__item">
+            <p className="contact-info__label">
+              {t("contact.address")}
+            </p>
+            <p className="contact-info__value">
+              Alexandria, Egypt
+            </p>
           </div>
 
-          <div>
-            <label htmlFor="email">{t("contact.fields.email")}</label>
-
-            <input
-              id="email"
-              name="email"
-              type="email"
-              value={formData.email}
-              onChange={handleChange}
-              placeholder={t("contact.placeholders.email")}
-            />
-
-            {errors.email && <p>{errors.email}</p>}
+          <div className="contact-info__item">
+            <p className="contact-info__label">
+              {t("contact.phone")}
+            </p>
+            <p className="contact-info__value">
+              +20 123 456 7890
+            </p>
           </div>
 
-          <div>
-            <label htmlFor="phone">{t("contact.fields.phone")}</label>
-
-            <input
-              id="phone"
-              name="phone"
-              type="tel"
-              value={formData.phone}
-              onChange={handleChange}
-              placeholder={t("contact.placeholders.phone")}
-            />
-
-            {errors.phone && <p>{errors.phone}</p>}
+          <div className="contact-info__item">
+            <p className="contact-info__label">
+              {t("contact.email")}
+            </p>
+            <p className="contact-info__value">
+              info@faculty.edu.eg
+            </p>
           </div>
+        </div>
 
-          <div>
-            <label htmlFor="message">{t("contact.fields.message")}</label>
+        <div className="contact-form">
+          <h2>{t("contact.formTitle")}</h2>
 
-            <textarea
-              id="message"
-              name="message"
-              rows="6"
-              value={formData.message}
-              onChange={handleChange}
-              placeholder={t("contact.placeholders.message")}
-            />
+          <form onSubmit={handleSubmit} noValidate>
+            <div className="contact-form__group">
+              <label htmlFor="name">
+                {t("contact.fields.name")}
+              </label>
 
-            {errors.message && <p>{errors.message}</p>}
-          </div>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                value={formData.name}
+                onChange={handleChange}
+                placeholder={t("contact.placeholders.name")}
+              />
 
-          <button type="submit">
-            {t("common.submit")}
-          </button>
+              {errors.name && (
+                <p className="contact-form__error">
+                  {errors.name}
+                </p>
+              )}
+            </div>
 
-          {submitted && <p>{t("contact.success")}</p>}
-        </form>
+            <div className="contact-form__group">
+              <label htmlFor="email">
+                {t("contact.fields.email")}
+              </label>
+
+              <input
+                id="email"
+                name="email"
+                type="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder={t("contact.placeholders.email")}
+              />
+
+              {errors.email && (
+                <p className="contact-form__error">
+                  {errors.email}
+                </p>
+              )}
+            </div>
+
+            <div className="contact-form__group">
+              <label htmlFor="phone">
+                {t("contact.fields.phone")}
+              </label>
+
+              <input
+                id="phone"
+                name="phone"
+                type="tel"
+                value={formData.phone}
+                onChange={handleChange}
+                placeholder={t("contact.placeholders.phone")}
+              />
+
+              {errors.phone && (
+                <p className="contact-form__error">
+                  {errors.phone}
+                </p>
+              )}
+            </div>
+
+            <div className="contact-form__group">
+              <label htmlFor="message">
+                {t("contact.fields.message")}
+              </label>
+
+              <textarea
+                id="message"
+                name="message"
+                rows="6"
+                value={formData.message}
+                onChange={handleChange}
+                placeholder={t("contact.placeholders.message")}
+              />
+
+              {errors.message && (
+                <p className="contact-form__error">
+                  {errors.message}
+                </p>
+              )}
+            </div>
+
+            <button
+              type="submit"
+              className="contact-form__submit"
+            >
+              {t("common.submit")}
+            </button>
+
+            {submitted && (
+              <p className="contact-form__success">
+                {t("contact.success")}
+              </p>
+            )}
+          </form>
+        </div>
       </section>
     </main>
   );

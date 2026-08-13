@@ -27,6 +27,7 @@ const router = createBrowserRouter([
         index: true,
         element: <Home />,
       },
+
       {
         path: "about",
         element: <About />,
@@ -59,7 +60,7 @@ const router = createBrowserRouter([
 
       {
         path: "announcements",
-        element: <Announcement />,
+        element: <Announcements />,
       },
 
       {
@@ -79,7 +80,7 @@ const router = createBrowserRouter([
 
       {
         path: "events",
-        element: <Event />,
+        element: <Events />,
       },
 
       {
