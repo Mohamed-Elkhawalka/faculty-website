@@ -60,7 +60,7 @@ const router = createBrowserRouter([
 
       {
         path: "announcements",
-        element: <Announcements />,
+        element: <Announcement />,
       },
 
       {
@@ -80,7 +80,7 @@ const router = createBrowserRouter([
 
       {
         path: "events",
-        element: <Events />,
+        element: <Event />,
       },
 
       {
