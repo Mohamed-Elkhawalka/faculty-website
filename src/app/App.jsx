@@ -1,18 +1,17 @@
 import { Outlet } from "react-router-dom";
-import LanguageSwitcher from "../components/LanguageSwitcher";
+import Navbar from "../Components/layout/Navbar/Navbar";
+import Footer from "../Components/layout/Footer/Footer";
 
 function App() {
   return (
     <>
-      <header className="site-header">
-        <LanguageSwitcher />
-      </header>
+      <Navbar />
 
       <main>
         <Outlet />
       </main>
 
-      <footer></footer>
+      <Footer />
     </>
   );
 }

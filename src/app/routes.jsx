@@ -8,12 +8,12 @@ import Departments from "../pages/Departments/Departments";
 import Programs from "../pages/Programs/Programs";
 import News from "../pages/News/News";
 import NewsDetails from "../pages/News/NewsDetails";
-import Announcements from "../pages/Announcements/Announcements";
+import Announcement from "../pages/Announcement/Announcement";
 import NotFound from "../pages/NotFound/NotFound";
 import Faculty from "../pages/Faculty/Faculty";
 import FacultyDetails from "../pages/Faculty/FacultyDetails";
 import Services from "../pages/Services/Services";
-import Events from "../pages/Events/Events";
+import Event from "../pages/Event/Event";
 import Contact from "../pages/Contact/Contact";
 
 const router = createBrowserRouter([
