@@ -1,10 +1,10 @@
 import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
-import announcements from "../../Data/announcement";
-import SearchBar from "../../UI/SearchBar/SearchBar";
-import Filter from "../../UI/Filter/Filter";
-import EmptyState from "../../UI/EmptyState/EmptyState";
-import AnnouncementCard from "../../Cards/AnnouncementCard/AnnouncementCard";
+import announcements from "../../data/announcement";
+import SearchBar from "../../ui/SearchBar/SearchBar";
+import Filter from "../../ui/Filter/Filter";
+import EmptyState from "../../ui/EmptyState/EmptyState";
+import AnnouncementCard from "../../cards/AnnouncementCard/AnnouncementCard";
 import "./Announcement.css";
 
 function Announcement() {
