@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 import news from "../../Data/news";
-import SearchBar from "../../UI/SearchBar/SearchBar";
-import Filter from "../../UI/Filter/Filter";
-import EmptyState from "../../UI/EmptyState/EmptyState";
-import NewsCard from "../../Cards/NewsCard/NewsCard";
+import SearchBar from "../../ui/SearchBar/SearchBar";
+import Filter from "../../ui/Filter/Filter";
+import EmptyState from "../../ui/EmptyState/EmptyState";
+import NewsCard from "../../cards/NewsCard/NewsCard";
 
 import styles from "./News.module.css";
 
