@@ -4,92 +4,102 @@ import App from "./App";
 
 import Home from "../pages/Home/Home";
 import About from "../pages/About/About";
+
 import Departments from "../pages/Departments/Departments";
 import DepartmentsDetails from "../pages/Departments/DepartmentsDetails";
+
 import Programs from "../pages/Programs/Programs";
+import ProgramDetails from "../pages/Programs/ProgramDetails";
+
 import News from "../pages/News/News";
 import NewsDetails from "../pages/News/NewsDetails";
+
 import Announcement from "../pages/Announcement/Announcement";
+
 import NotFound from "../pages/NotFound/NotFound";
+
 import Faculty from "../pages/Faculty/Faculty";
 import FacultyDetails from "../pages/Faculty/FacultyDetails";
+
 import Services from "../pages/Services/Services";
+import ServiceDetails from "../pages/Services/ServiceDetails";
+
 import Event from "../pages/Event/Event";
 import Contact from "../pages/Contact/Contact";
 
-const router = createBrowserRouter([
+const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: <App />,
+      errorElement: <NotFound />,
+      children: [
+        {
+          index: true,
+          element: <Home />,
+        },
+        {
+          path: "about",
+          element: <About />,
+        },
+        {
+          path: "departments",
+          element: <Departments />,
+        },
+        {
+          path: "departments/:id",
+          element: <DepartmentsDetails />,
+        },
+        {
+          path: "programs",
+          element: <Programs />,
+        },
+        {
+          path: "programs/:id",
+          element: <ProgramDetails />,
+        },
+        {
+          path: "news",
+          element: <News />,
+        },
+        {
+          path: "news/:id",
+          element: <NewsDetails />,
+        },
+        {
+          path: "announcements",
+          element: <Announcement />,
+        },
+        {
+          path: "faculty",
+          element: <Faculty />,
+        },
+        {
+          path: "faculty/:id",
+          element: <FacultyDetails />,
+        },
+        {
+          path: "services",
+          element: <Services />,
+        },
+        {
+          path: "services/:id",
+          element: <ServiceDetails />,
+        },
+        {
+          path: "events",
+          element: <Event />,
+        },
+        {
+          path: "contact",
+          element: <Contact />,
+        },
+      ],
+    },
+  ],
   {
-    path: "/",
-    element: <App />,
-    errorElement: <NotFound />,
-
-    children: [
-      {
-        index: true,
-        element: <Home />,
-      },
-
-      {
-        path: "about",
-        element: <About />,
-      },
-
-      {
-        path: "departments",
-        element: <Departments />,
-      },
-
-      {
-        path: "departments/:id",
-        element: <DepartmentsDetails />,
-      },
-
-      {
-        path: "programs",
-        element: <Programs />,
-      },
-
-      {
-        path: "news",
-        element: <News />,
-      },
-
-      {
-        path: "news/:id",
-        element: <NewsDetails />,
-      },
-
-      {
-        path: "announcements",
-        element: <Announcement />,
-      },
-
-      {
-        path: "faculty",
-        element: <Faculty />,
-      },
-
-      {
-        path: "faculty/:id",
-        element: <FacultyDetails />,
-      },
-
-      {
-        path: "services",
-        element: <Services />,
-      },
-
-      {
-        path: "events",
-        element: <Event />,
-      },
-
-      {
-        path: "contact",
-        element: <Contact />,
-      },
-    ],
+    basename: "/faculty-website",
   },
-]);
+);
 
 export default router;

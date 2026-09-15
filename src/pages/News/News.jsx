@@ -1,8 +1,7 @@
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-
-import news from "../../Data/news";
+import news from "../../data/news";
 import SearchBar from "../../ui/SearchBar/SearchBar";
 import Filter from "../../ui/Filter/Filter";
 import EmptyState from "../../ui/EmptyState/EmptyState";

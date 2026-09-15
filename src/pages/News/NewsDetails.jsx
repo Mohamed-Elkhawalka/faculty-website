@@ -1,7 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-import news from "../../Data/news";
+import news from "../../data/news";
 
 import styles from "./NewsDetails.module.css";
 
